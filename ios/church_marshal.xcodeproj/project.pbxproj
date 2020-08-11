@@ -16,6 +16,9 @@
 		2D02E4BD1E0B4A84006451C7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		2D02E4BF1E0B4AB3006451C7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		2DCD954D1E0B4F2C00145EB5 /* church_marshalTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* church_marshalTests.m */; };
+		CCCA939BC75241AA92510295 /* AvenirNextLTPro-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 47DA234FD6814806970135B5 /* AvenirNextLTPro-Bold.otf */; };
+		692C73345F9E45368BBBD804 /* AvenirNextLTPro-It.otf in Resources */ = {isa = PBXBuildFile; fileRef = C07DB350EC984D9980552E52 /* AvenirNextLTPro-It.otf */; };
+		6980C04899D74980871B696F /* AvenirNextLTPro-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 39783129BDD34F91ABC452A8 /* AvenirNextLTPro-Regular.otf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +54,9 @@
 		2D02E4901E0B4A5D006451C7 /* church_marshal-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "church_marshal-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		ED2971642150620600B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.0.sdk/System/Library/Frameworks/JavaScriptCore.framework; sourceTree = DEVELOPER_DIR; };
+		47DA234FD6814806970135B5 /* AvenirNextLTPro-Bold.otf */ = {isa = PBXFileReference; name = "AvenirNextLTPro-Bold.otf"; path = "../src/assets/fonts/AvenirNextLTPro-Bold.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		C07DB350EC984D9980552E52 /* AvenirNextLTPro-It.otf */ = {isa = PBXFileReference; name = "AvenirNextLTPro-It.otf"; path = "../src/assets/fonts/AvenirNextLTPro-It.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		39783129BDD34F91ABC452A8 /* AvenirNextLTPro-Regular.otf */ = {isa = PBXFileReference; name = "AvenirNextLTPro-Regular.otf"; path = "../src/assets/fonts/AvenirNextLTPro-Regular.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,6 +146,7 @@
 				00E356EF1AD99517003FC87E /* church_marshalTests */,
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
+				2BF5DE30C02E43069AFE9129 /* Resources */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -156,6 +163,17 @@
 			);
 			name = Products;
 			sourceTree = "<group>";
+		};
+		2BF5DE30C02E43069AFE9129 /* Resources */ = {
+			isa = "PBXGroup";
+			children = (
+				47DA234FD6814806970135B5 /* AvenirNextLTPro-Bold.otf */,
+				C07DB350EC984D9980552E52 /* AvenirNextLTPro-It.otf */,
+				39783129BDD34F91ABC452A8 /* AvenirNextLTPro-Regular.otf */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+			path = "";
 		};
 /* End PBXGroup section */
 
@@ -240,7 +258,7 @@
 		83CBB9F71A601CBA00E9B192 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0940;
+				LastUpgradeCheck = 940;
 				ORGANIZATIONNAME = Facebook;
 				TargetAttributes = {
 					00E356ED1AD99517003FC87E = {
@@ -293,6 +311,9 @@
 			files = (
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
+				CCCA939BC75241AA92510295 /* AvenirNextLTPro-Bold.otf in Resources */,
+				692C73345F9E45368BBBD804 /* AvenirNextLTPro-It.otf in Resources */,
+				6980C04899D74980871B696F /* AvenirNextLTPro-Regular.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
