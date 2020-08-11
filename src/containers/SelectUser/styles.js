@@ -5,7 +5,7 @@ import { Colors, Metrics, Fonts } from "../../theme";
 export default StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: Colors.white,
+    backgroundColor: Colors.Seashell,
   },
   contentView: {
     flex: 1,
