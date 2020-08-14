@@ -1,6 +1,6 @@
 // @flow
-import { StyleSheet } from "react-native";
-import { Metrics, Colors, Fonts } from "../../theme";
+import {StyleSheet} from 'react-native';
+import {Metrics, Colors, Fonts} from '../../theme';
 
 export default StyleSheet.create({
   textInput: {
@@ -12,6 +12,6 @@ export default StyleSheet.create({
     fontFamily: Fonts.type.AvenirNextLTProRegular,
     paddingBottom: Metrics.ratio(1),
     paddingHorizontal: 0,
-    marginBottom: Metrics.ratio(16)
+    marginBottom: Metrics.ratio(16),
   },
 });

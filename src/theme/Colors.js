@@ -1,11 +1,11 @@
 // SOLID
-const White = "#FFFFFF";
-const Black = "#000000";
-const Seashell = "#F1F1F1";
+const White = '#FFFFFF';
+const Black = '#000000';
+const Seashell = '#F1F1F1';
 
 // APPROX
-const Torch_Red = "#FE1C27";
-const Dove_Gray = "#6A6A6A";
+const Torch_Red = '#FE1C27';
+const Dove_Gray = '#6A6A6A';
 
 export default {
   // SOLID
@@ -16,4 +16,4 @@ export default {
   // APPROX
   Torch_Red,
   Dove_Gray,
-}
+};
