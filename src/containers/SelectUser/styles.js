@@ -1,6 +1,6 @@
 // @flow
-import { StyleSheet } from "react-native";
-import { Colors, Metrics, Fonts } from "../../theme";
+import {StyleSheet} from 'react-native';
+import {Colors, Metrics, Fonts} from '../../theme';
 
 export default StyleSheet.create({
   container: {
@@ -12,7 +12,6 @@ export default StyleSheet.create({
     justifyContent: 'space-between',
     backgroundColor: Colors.Seashell,
     paddingVertical: Metrics.screenHeight * 0.08,
-
   },
   labelText: {
     fontSize: Metrics.ratio(14),
@@ -48,7 +47,7 @@ export default StyleSheet.create({
     alignSelf: 'flex-end',
     borderRadius: Metrics.ratio(5),
     width: Metrics.screenWidth * 0.3,
-    paddingVertical: Metrics.ratio(8),
+    paddingVertical: Metrics.ratio(12),
     marginHorizontal: Metrics.screenWidth * 0.05,
     shadowColor: Colors.Black,
     shadowOffset: {
@@ -65,5 +64,5 @@ export default StyleSheet.create({
     color: Colors.White,
     textTransform: 'uppercase',
     fontFamily: Fonts.type.AvenirNextLTProBold,
-  }
+  },
 });

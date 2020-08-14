@@ -1,10 +1,10 @@
-import React, { Component } from "react";
-import { TextInput } from "react-native";
-import PropTypes from "prop-types";
+import React, {Component} from 'react';
+import {TextInput} from 'react-native';
+import PropTypes from 'prop-types';
 
-import styles from "./styles";
+import styles from './styles';
 
-import { Colors } from "../../theme";
+import {Colors} from '../../theme';
 
 class CustomTextInput extends Component {
   static propTypes = {

@@ -1,6 +1,6 @@
 // @flow
-import { StyleSheet } from "react-native";
-import { Colors, Metrics, Fonts } from "../../theme";
+import {StyleSheet} from 'react-native';
+import {Colors, Metrics, Fonts} from '../../theme';
 
 export default StyleSheet.create({
   container: {
@@ -21,7 +21,7 @@ export default StyleSheet.create({
     backgroundColor: Colors.Torch_Red,
     borderRadius: Metrics.ratio(5),
     width: Metrics.screenWidth * 0.42,
-    paddingVertical: Metrics.ratio(8),
+    paddingVertical: Metrics.ratio(12),
     shadowColor: Colors.Black,
     shadowOffset: {
       width: 0,
@@ -45,5 +45,5 @@ export default StyleSheet.create({
     color: Colors.White,
     textTransform: 'uppercase',
     fontFamily: Fonts.type.AvenirNextLTProBold,
-  }
+  },
 });
