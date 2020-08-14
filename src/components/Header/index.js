@@ -1,98 +1,81 @@
-import React, { Component } from "react";
-import { Text, View, TouchableOpacity, Platform } from "react-native";
-import PropTypes from "prop-types";
-import Icon from "react-native-vector-icons/FontAwesome";
+import React, {Component} from 'react';
+import {Text, View, TouchableOpacity, Image} from 'react-native';
+import PropTypes from 'prop-types';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
-import styles from "./styles";
+import styles from './styles';
 
-import { Metrics, Colors } from "../../theme";
+import {Metrics, Colors} from '../../theme';
 
 class Header extends Component {
   static propTypes = {
-    headerText: PropTypes.string,
     leftIcon: PropTypes.string,
-    rightIcon: PropTypes.string,
     leftBtnPress: PropTypes.func,
-    rightBtnPress: PropTypes.func,
     leftIconStyle: PropTypes.object,
+    leftIconSize: PropTypes.number,
+    headerLogo: PropTypes.string,
+    headerLogoStyle: PropTypes.object,
+    headerText: PropTypes.string,
     headerTextStyle: PropTypes.object,
+    rightIcon: PropTypes.string,
+    rightBtnPress: PropTypes.func,
     rightIconStyle: PropTypes.object,
     rightIconSize: PropTypes.number,
-    productQuantity: PropTypes.number,
-    itemQuantity: PropTypes.number
   };
   static defaultProps = {
-    headerText: "",
     leftIcon: undefined,
-    rightIcon: undefined,
     leftBtnPress: undefined,
     leftIconStyle: undefined,
+    leftIconSize: undefined,
+    headerLogo: '',
+    headerLogoStyle: undefined,
+    headerText: '',
     headerTextStyle: undefined,
+    rightIcon: undefined,
+    rightBtnPress: undefined,
     rightIconStyle: undefined,
     rightIconSize: undefined,
-    rightBtnPress: undefined,
-    productQuantity: undefined,
-    itemQuantity: undefined
   };
 
   render() {
     const {
-      headerText,
       leftIcon,
-      rightIcon,
       leftBtnPress,
+      leftIconStyle,
+      leftIconSize,
+      headerLogo,
+      headerLogoStyle,
+      headerText,
       headerTextStyle,
+      rightIcon,
       rightIconStyle,
-      rightIconSize,
       rightBtnPress,
-      itemQuantity
+      rightIconSize,
     } = this.props;
 
     return (
-      <View style={[styles.container, Platform.OS === 'ios' && { paddingTop: Metrics.screenHeight * 0.035 }]}>
+      <View style={styles.container}>
         <TouchableOpacity
-          style={[styles.TouchableMenu, { justifyContent: 'center', alignItems: 'center', }]}
-          onPress={leftBtnPress}
-        >
+          style={[styles.TouchableMenu, leftIconStyle]}
+          onPress={leftBtnPress}>
           <Icon
-            size={Metrics.ratio(20)}
+            size={leftIconSize ? leftIconSize : Metrics.ratio(20)}
             color={Colors.White}
             name={leftIcon}
           />
         </TouchableOpacity>
-
-        <Text style={[styles.headerText, headerTextStyle,]}>{headerText}</Text>
-
+        <View style={styles.centerView}>
+          {headerLogo && (
+            <Image
+              source={headerLogo}
+              style={[styles.headerLogo, headerLogoStyle]}
+            />
+          )}
+          <Text style={[styles.headerText, headerTextStyle]}>{headerText}</Text>
+        </View>
         <TouchableOpacity
           onPress={rightBtnPress}
-          style={[styles.TouchableMenu, rightIconStyle, { justifyContent: 'center', alignItems: 'center', }]}
-        >
-          {itemQuantity && (
-            <View
-              style={{
-                width: Metrics.ratio(20),
-                height: Metrics.ratio(20),
-                borderRadius: Metrics.ratio(5),
-                borderWidth: Metrics.ratio(2),
-                borderColor: Colors.White,
-                justifyContent: "center",
-                alignItems: "center",
-                position: "absolute",
-                zIndex: 1,
-                marginLeft: Metrics.ratio(-13),
-                marginTop: Metrics.ratio(-10)
-              }}
-            >
-              <Text
-                style={{
-                  color: Colors.White
-                }}
-              >
-                {itemQuantity}
-              </Text>
-            </View>
-          )}
-
+          style={[styles.TouchableMenu, rightIconStyle]}>
           <Icon
             size={rightIconSize ? rightIconSize : Metrics.ratio(20)}
             color={Colors.White}

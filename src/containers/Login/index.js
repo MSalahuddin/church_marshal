@@ -1,11 +1,12 @@
 // @flow
 // import { connect } from "react-redux";
-import React, { Component } from "react";
-import { Text, View, TouchableOpacity } from "react-native";
+import React, {Component} from 'react';
+import {Text, View, TouchableOpacity} from 'react-native';
 
-import { Header, CustomTextInput } from "../../components";
+import {Header, CustomTextInput} from '../../components';
+import {Images} from '../../theme';
 
-import styles from "./styles";
+import styles from './styles';
 
 class LoginScreen extends Component {
   constructor(props) {
@@ -14,33 +15,33 @@ class LoginScreen extends Component {
       churchCode: null,
       username: null,
       password: null,
-    }
+    };
   }
 
-  onChangeChurchCode = (value) => this.setState({ churchCode: value })
-  onChangeUsername = (value) => this.setState({ username: value })
-  onChangePassword = (value) => this.setState({ password: value })
+  onChangeChurchCode = (value) => this.setState({churchCode: value});
+  onChangeUsername = (value) => this.setState({username: value});
+  onChangePassword = (value) => this.setState({password: value});
 
   render() {
-    const { churchCode, username, password } = this.state;
+    const {churchCode, username, password} = this.state;
     return (
       <View style={styles.container}>
-        <Header headerText={"Login"} />
+        <Header headerLogo={Images.official_logo} headerText={'Login'} />
         <View style={styles.contentView}>
           <CustomTextInput
             onChangeText={this.onChangeChurchCode}
             textInputValue={churchCode}
-            placeholder={"CHURCH CODE"}
+            placeholder={'CHURCH CODE'}
           />
           <CustomTextInput
             onChangeText={this.onChangeUsername}
             textInputValue={username}
-            placeholder={"USERNAME"}
+            placeholder={'USERNAME'}
           />
           <CustomTextInput
             onChangeText={this.onChangePassword}
             textInputValue={password}
-            placeholder={"PASSWORD"}
+            placeholder={'PASSWORD'}
             secureTextEntry={true}
           />
           <View style={styles.row}>
@@ -61,4 +62,4 @@ class LoginScreen extends Component {
 
 // const actions = {};
 
-export default LoginScreen // connect(mapStateToProps, actions)(Empty);
+export default LoginScreen; // connect(mapStateToProps, actions)(Empty);
