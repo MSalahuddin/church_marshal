@@ -32,7 +32,7 @@ export default StyleSheet.create({
     flex: 1,
     fontSize: Metrics.ratio(18),
     textTransform: 'uppercase',
-    fontFamily: Fonts.type.AvenirNextLTProRegular,
+    fontFamily: Fonts.type.AvenirNextLTProBold,
     color: Colors.Torch_Red,
     marginLeft: Metrics.screenWidth * 0.025,
     marginRight: Metrics.screenWidth * 0.05,
