@@ -12,7 +12,8 @@ import SplashScreen from 'react-native-splash-screen';
 
 // import SelectUserScreen from './containers/SelectUser';
 // import LoginScreen from './containers/Login';
-import MyChildrenList from './containers/MyChildrenList';
+// import MyChildrenList from './containers/MyChildrenList';
+import CheckedOutList from './containers/CheckedOutList';
 export default class App extends Component {
   constructor(props) {
     super(props);
@@ -26,7 +27,8 @@ export default class App extends Component {
     return (
       // <SelectUserScreen />
       // <LoginScreen />
-      <MyChildrenList />
+      // <MyChildrenList />
+      <CheckedOutList />
     );
   }
 }
