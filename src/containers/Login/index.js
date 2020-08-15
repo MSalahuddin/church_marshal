@@ -18,14 +18,17 @@ class Login extends Component {
     };
   }
 
+  handleNavigation = (screen_name) => {
+    const {navigation} = this.props;
+    navigation.navigate(screen_name);
+  };
+
   handleBackBtn = () => {
-    this.props.navigation.navigate("SelectUserScreen")
-    console.log('Back');
+    this.handleNavigation('SelectUser');
   };
 
   handleLoginBtn = () => {
-    this.props.navigation.navigate("MyChildrenList")
-    console.log('Login');
+    this.handleNavigation('MyChildrenList');
   };
 
   onChangeChurchCode = (value) => this.setState({churchCode: value});
