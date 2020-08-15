@@ -22,7 +22,7 @@ export default StyleSheet.create({
     fontSize: Metrics.ratio(14),
     fontFamily: Fonts.type.AvenirNextLTProBold,
     color: Colors.Dove_Gray,
-    marginBottom: Metrics.ratio(4),
+    marginBottom: Metrics.ratio(12),
   },
   cardBody: {
     flexDirection: 'row',
@@ -73,7 +73,7 @@ export default StyleSheet.create({
     textAlign: 'right',
   },
   cardFooter: {
-    marginTop: Metrics.ratio(6),
+    marginTop: Metrics.ratio(12),
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'baseline',

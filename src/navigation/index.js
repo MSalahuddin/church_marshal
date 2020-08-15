@@ -5,6 +5,7 @@ import Login from '../containers/Login';
 import SelectUser from '../containers/SelectUser';
 import MyChildrenList from '../containers/MyChildrenList';
 import SelectList from '../containers/SelectList';
+import TagForParent from '../containers/TagForParent';
 
 const Stack = createStackNavigator();
 
@@ -15,6 +16,7 @@ function Navigator() {
         screenOptions={{
           headerShown: false,
         }}>
+        <Stack.Screen name="TagForParent" component={TagForParent} />
         <Stack.Screen name="SelectList" component={SelectList} />
         <Stack.Screen name="SelectUser" component={SelectUser} />
         <Stack.Screen name="Login" component={Login} />

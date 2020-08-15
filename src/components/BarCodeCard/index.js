@@ -76,9 +76,11 @@ class BarCodeCard extends Component {
         disabled={isCardDisabled}
         style={[styles.card, cardStyle]}
         onPress={cardPress}>
-        <Text style={[styles.cardHeaderText, cardHeaderTextStyle]}>
-          {cardHeaderText}
-        </Text>
+        {cardHeaderText ? (
+          <Text style={[styles.cardHeaderText, cardHeaderTextStyle]}>
+            {cardHeaderText}
+          </Text>
+        ) : null}
         <View style={styles.cardBody}>
           <View style={styles.cardBodyRow}>
             {cardBodyImage ? (
