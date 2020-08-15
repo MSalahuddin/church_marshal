@@ -4,7 +4,7 @@ import React, {Component} from 'react';
 import LoginScreen from '../containers/Login';
 import SelectUserScreen from '../containers/SelectUser';
 import MyChildrenList from '../containers/MyChildrenList';
-
+import CheckedOutList from '../containers/CheckedOutList';
 const Stack = createStackNavigator();
 
 function Navigator() {
@@ -14,6 +14,7 @@ function Navigator() {
             screenOptions={{
             headerShown: false
         }}>
+            <Stack.Screen name="CheckedOutList" component={CheckedOutList} />
           <Stack.Screen name="SelectUserScreen" component={SelectUserScreen} />
           <Stack.Screen name="Login" component={LoginScreen} />
           <Stack.Screen name="MyChildrenList" component={MyChildrenList} />
