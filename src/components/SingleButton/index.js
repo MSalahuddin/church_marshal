@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 import styles from './styles';
 
-class Header extends Component {
+class SingleButton extends Component {
   static propTypes = {
     btnText: PropTypes.string,
     btnPress: PropTypes.func,
@@ -28,4 +28,4 @@ class Header extends Component {
   }
 }
 
-export default Header;
+export default SingleButton;

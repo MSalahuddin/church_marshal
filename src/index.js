@@ -21,9 +21,6 @@ export default class App extends Component {
   render() {
     return (
         <Navigator/>
-      // <SelectUserScreen />
-    //   <LoginScreen />
-    //   <MyChildrenList />
     );
   }
 }

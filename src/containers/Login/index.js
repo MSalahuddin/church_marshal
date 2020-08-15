@@ -1,14 +1,14 @@
 // @flow
 // import { connect } from "react-redux";
 import React, {Component} from 'react';
-import {Text, View, TouchableOpacity} from 'react-native';
+import {View} from 'react-native';
 
-import {Header, CustomTextInput} from '../../components';
+import {Header, CustomTextInput, DoubleButton} from '../../components';
 import {Images} from '../../theme';
 
 import styles from './styles';
 
-class LoginScreen extends Component {
+class Login extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -17,6 +17,14 @@ class LoginScreen extends Component {
       password: null,
     };
   }
+
+  handleBackBtn = () => {
+    console.log('Back');
+  };
+
+  handleLoginBtn = () => {
+    console.log('Login');
+  };
 
   onChangeChurchCode = (value) => this.setState({churchCode: value});
   onChangeUsername = (value) => this.setState({username: value});
@@ -44,14 +52,12 @@ class LoginScreen extends Component {
             placeholder={'PASSWORD'}
             secureTextEntry={true}
           />
-          <View style={styles.row}>
-            <TouchableOpacity style={[styles.button, styles.buttonLeft]}>
-              <Text style={styles.buttonText}>Back</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={[styles.button, styles.buttonRight]}>
-              <Text style={styles.buttonText}>Login</Text>
-            </TouchableOpacity>
-          </View>
+          <DoubleButton
+            leftButtonText={'Back'}
+            leftButtonPress={() => this.handleBackBtn()}
+            rightButtonText={'Login'}
+            rightButtonPress={() => this.handleLoginBtn()}
+          />
         </View>
       </View>
     );
@@ -62,4 +68,4 @@ class LoginScreen extends Component {
 
 // const actions = {};
 
-export default LoginScreen; // connect(mapStateToProps, actions)(Empty);
+export default Login; // connect(mapStateToProps, actions)(Empty);

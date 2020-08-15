@@ -1,107 +1,94 @@
-import React, { Component } from 'react';
-import { Text, TouchableOpacity, View, Image } from 'react-native';
+import React, {Component} from 'react';
+import {View, Text, Image, TouchableOpacity} from 'react-native';
 import PropTypes from 'prop-types';
 import {Colors, Metrics, Images, Fonts} from '../../theme'
 import styles from './styles';
 
 class ProfileCard extends Component {
   static propTypes = {
-    btnText: PropTypes.string,
-    btnPress: PropTypes.func,
-    btnStyle: PropTypes.object,
-    btnTextStyle: PropTypes.object,
+    isCardDisabled: PropTypes.bool,
+    cardStyle: PropTypes.object,
+    cardPress: PropTypes.func,
+    cardImage: PropTypes.string,
+    cardImageStyle: PropTypes.object,
+    titleText: PropTypes.string,
+    titleTextStyle: PropTypes.object,
+    subText: PropTypes.string,
+    subTextStyle: PropTypes.object,
+    rightIcon: PropTypes.string,
+    rightIconStyle: PropTypes.object,
+    rightIconPress: PropTypes.func,
+    cardFooterText: PropTypes.string,
+    cardFooterTextStyle: PropTypes.object,
   };
   static defaultProps = {
-    btnText: '',
-    btnPress: undefined,
-    btnStyle: undefined,
-    btnTextStyle: undefined,
+    isCardDisabled: true,
+    cardStyle: undefined,
+    cardPress: undefined,
+    cardImage: '',
+    cardImageStyle: undefined,
+    titleText: '',
+    titleTextStyle: undefined,
+    subText: '',
+    subTextStyle: undefined,
+    rightIcon: '',
+    rightIconStyle: undefined,
+    rightIconPress: undefined,
+    cardFooterText: '',
+    cardFooterTextStyle: undefined,
   };
 
   render() {
-    const { btnText, btnPress, btnStyle, btnTextStyle } = this.props;
+    const {
+      isCardDisabled,
+      cardStyle,
+      cardPress,
+      cardImage,
+      cardImageStyle,
+      titleText,
+      titleTextStyle,
+      subText,
+      subTextStyle,
+      rightIcon,
+      rightIconStyle,
+      rightIconPress,
+      cardFooterText,
+      cardFooterTextStyle,
+    } = this.props;
     return (
       <TouchableOpacity
-        disabled={true}
-        style={{
-          backgroundColor: Colors.White,
-          marginHorizontal: Metrics.screenWidth * 0.05,
-          marginBottom: Metrics.ratio(24),
-          padding: Metrics.ratio(8),
-          borderRadius: Metrics.ratio(5),
-          shadowColor: Colors.Black,
-          shadowOffset: {
-            width: 0,
-            height: 3,
-          },
-          shadowOpacity: 0.27,
-          shadowRadius: 4.65,
-          elevation: 6,
-        }}>
-        <View
-          style={{
-            flexDirection: 'row',
-            alignItems: 'center',
-            justifyContent: 'space-between',
-          }}>
-          <View
-            style={{
-              flexDirection: 'row',
-              alignItems: 'center',
-            }}>
+        disabled={isCardDisabled}
+        style={[styles.card, cardStyle]}
+        onPress={cardPress}>
+        <View style={styles.cardBody}>
+          <View style={styles.cardBodyRow}>
             <Image
-              source={Images.profile_img}
-              style={{
-                width: Metrics.ratio(60),
-                height: Metrics.ratio(60),
-              }}
+              source={cardImage}
+              style={[styles.cardImage, cardImageStyle]}
             />
-            <View
-              style={{
-                marginLeft: Metrics.ratio(8),
-                width: Metrics.screenWidth * 0.57,
-              }}>
-              <Text
-                style={{
-                  fontSize: Metrics.ratio(16),
-                  textTransform: 'uppercase',
-                  fontFamily: Fonts.type.AvenirNextLTProBold,
-                  color: Colors.Torch_Red,
-                  marginBottom: Metrics.ratio(6),
-                }}>
-                Alice, Johnson
-                      </Text>
-              <Text
-                style={{
-                  fontSize: Metrics.ratio(14),
-                  fontFamily: Fonts.type.AvenirNextLTProBold,
-                  color: Colors.Dove_Gray,
-                }}>
-                3rd Grade
-                      </Text>
+            <View style={styles.titleView}>
+              <Text style={[styles.titleText, titleTextStyle]}>
+                {titleText}
+              </Text>
+              {subText ? (
+                <Text style={[styles.subText, subTextStyle]}>{subText}</Text>
+              ) : null}
             </View>
           </View>
-          <TouchableOpacity>
+          <TouchableOpacity onPress={rightIconPress}>
             <Image
-              source={Images.delete_icon}
-              style={{
-                width: Metrics.ratio(25),
-                height: Metrics.ratio(25),
-              }}
+              source={rightIcon}
+              style={[styles.rightIcon, rightIconStyle]}
             />
           </TouchableOpacity>
         </View>
-        <View>
-          <Text
-            style={{
-              textAlign: 'right',
-              fontSize: Metrics.ratio(14),
-              fontFamily: Fonts.type.AvenirNextLTProBold,
-              color: Colors.Dove_Gray,
-            }}>
-            12:30 PM
-                  </Text>
-        </View>
+        {cardFooterText ? (
+          <View>
+            <Text style={[styles.cardFooterText, cardFooterTextStyle]}>
+              {cardFooterText}
+            </Text>
+          </View>
+        ) : null}
       </TouchableOpacity>
     );
   }
