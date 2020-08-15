@@ -10,11 +10,10 @@ export default StyleSheet.create({
   contentView: {
     flex: 1,
     justifyContent: 'space-between',
-    paddingBottom: Metrics.screenHeight * 0.03,
+    paddingVertical: Metrics.screenHeight * 0.03,
   },
   listView: {
     flex: 1,
-    marginBottom: Metrics.screenHeight * 0.03,
-    paddingTop: Metrics.screenHeight * 0.03,
+    paddingVertical: Metrics.screenHeight * 0.03,
   },
 });

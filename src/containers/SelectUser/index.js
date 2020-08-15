@@ -9,6 +9,11 @@ import {Images} from '../../theme';
 import styles from './styles';
 
 class SelectUser extends Component {
+  handleNavigation = (screen_name) => {
+    const {navigation} = this.props;
+    navigation.navigate(screen_name);
+  };
+
   handleBackBtn = () => {
     console.log('Back');
   };
@@ -17,10 +22,11 @@ class SelectUser extends Component {
 
   renderChooseBtn = (btnText) => {
     return (
-      <TouchableOpacity 
-        onPress = {() => {this.props.navigation.navigate("Login")}}
-        style={styles.chooseBtn} 
-      >
+      <TouchableOpacity
+        onPress={() => {
+          this.handleNavigation('Login');
+        }}
+        style={styles.chooseBtn}>
         <Text style={styles.chooseBtnText}>{btnText}</Text>
       </TouchableOpacity>
     );

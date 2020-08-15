@@ -19,8 +19,6 @@ export default class App extends Component {
     }, 1000);
   }
   render() {
-    return (
-        <Navigator/>
-    );
+    return <Navigator />;
   }
 }
