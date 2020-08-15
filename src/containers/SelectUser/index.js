@@ -3,11 +3,16 @@
 import React, {Component} from 'react';
 import {Text, View, TouchableOpacity} from 'react-native';
 
-import {Header} from '../../components';
+import {Header, SingleButton} from '../../components';
+import {Images} from '../../theme';
 
 import styles from './styles';
 
 class SelectUserScreen extends Component {
+  handleBackBtn = () => {
+    console.log('Back');
+  };
+
   renderLabel = (text) => <Text style={styles.labelText}>{text}</Text>;
 
   renderChooseBtn = (btnText) => {
@@ -21,7 +26,7 @@ class SelectUserScreen extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Header headerText={'Select User'} />
+        <Header headerLogo={Images.official_logo} headerText={'Select User'} />
         <View style={styles.contentView}>
           <View>
             {this.renderLabel('Parents')}
@@ -29,9 +34,10 @@ class SelectUserScreen extends Component {
             {this.renderLabel('Church Admin')}
             {this.renderChooseBtn('Check In Children')}
           </View>
-          <TouchableOpacity style={styles.backBtn}>
-            <Text style={styles.backBtnText}>Back</Text>
-          </TouchableOpacity>
+          <SingleButton
+            btnText={'Back'}
+            btnPress={() => this.handleBackBtn()}
+          />
         </View>
       </View>
     );
