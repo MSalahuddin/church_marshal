@@ -10,10 +10,11 @@ import React, {Component} from 'react';
 // import { Actions } from "react-native-router-flux";
 import SplashScreen from 'react-native-splash-screen';
 
-import SelectUserScreen from './containers/SelectUser';
-// import LoginScreen from './containers/Login';
+// import SelectUser from './containers/SelectUser';
+import Login from './containers/Login';
 // import MyChildrenList from './containers/MyChildrenList';
 // import CheckedOutList from './containers/CheckedOutList';
+
 export default class App extends Component {
   constructor(props) {
     super(props);
@@ -25,8 +26,8 @@ export default class App extends Component {
   }
   render() {
     return (
-      <SelectUserScreen />
-      // <LoginScreen />
+      // <SelectUser />
+      <Login />
       // <MyChildrenList />
       // <CheckedOutList />
     );

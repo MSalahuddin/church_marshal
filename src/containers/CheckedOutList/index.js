@@ -8,7 +8,7 @@ import {Images} from '../../theme';
 
 import styles from './styles';
 
-class MyChildrenList extends Component {
+class CheckedOutList extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -77,4 +77,4 @@ class MyChildrenList extends Component {
 
 // const actions = {};
 
-export default MyChildrenList; // connect(mapStateToProps, actions)(Empty);
+export default CheckedOutList; // connect(mapStateToProps, actions)(Empty);

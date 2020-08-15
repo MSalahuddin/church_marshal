@@ -8,7 +8,7 @@ import {Images} from '../../theme';
 
 import styles from './styles';
 
-class SelectUserScreen extends Component {
+class SelectUser extends Component {
   handleBackBtn = () => {
     console.log('Back');
   };
@@ -48,4 +48,4 @@ class SelectUserScreen extends Component {
 
 // const actions = {};
 
-export default SelectUserScreen; // connect(mapStateToProps, actions)(Empty);
+export default SelectUser; // connect(mapStateToProps, actions)(Empty);
