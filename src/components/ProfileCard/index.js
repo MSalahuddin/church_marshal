@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { Text, TouchableOpacity } from 'react-native';
+import { Text, TouchableOpacity, View, Image } from 'react-native';
 import PropTypes from 'prop-types';
-
+import {Colors, Metrics, Images, Fonts} from '../../theme'
 import styles from './styles';
 
 class ProfileCard extends Component {
