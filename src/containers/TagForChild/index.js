@@ -1,46 +1,34 @@
 // @flow
 // import { connect } from "react-redux";
 import React, {Component} from 'react';
-import {View, ScrollView, Text} from 'react-native';
+import {View, ScrollView} from 'react-native';
 
-import {Header, ProfileCard} from '../../components';
+import {Header, BarCodeCard} from '../../components';
 import {Images} from '../../theme';
 
 import styles from './styles';
 
-class CheckedOutList extends Component {
+class TagForChild extends Component {
   constructor(props) {
     super(props);
     this.state = {
       userList: [
         {
+          grade: '3rd Grade',
           profileImage: Images.profile_img,
           name: 'Alice, Johnson',
-          subText: '3rd Grade',
+          barCodeNo: '281-121-1212',
+          date: 'Sep 30, 2020',
           time: '12:30 PM',
-        },
-        {
-          profileImage: Images.profile_img,
-          name: 'Liiberth, Johnson',
-          subText: 'Toddler Class',
-          time: '12:30 PM',
-        },
-        {
-          profileImage: Images.profile_img,
-          name: 'John, Elias',
-          subText: '8-12 Yr Old',
-          time: '12:30 PM',
+          barCodeImage: Images.barcode_icon,
+          id: '994',
         },
       ],
     };
   }
 
-  handleCheckIn = () => {
-    console.log('Check In');
-  };
-
-  handleDeleteUser = (userId) => {
-    console.log(userId, 'Delete User');
+  handleSelectedCard = () => {
+    console.log('Selected Card');
   };
 
   render() {
@@ -49,21 +37,25 @@ class CheckedOutList extends Component {
       <View style={styles.container}>
         <Header
           headerLogo={Images.official_logo}
-          headerText={'Checked Out List'}
+          headerText={'Tag For Child'}
         />
         <View style={styles.contentView}>
-          <Text style={styles.dateText}>Sunday, 30 Sep, 2020</Text>
           <View style={styles.listView}>
             <ScrollView>
               {userList.length > 0 &&
                 userList.map((val, ind) => (
-                  <ProfileCard
+                  <BarCodeCard
                     key={ind}
-                    isCardDisabled={false}
                     cardImage={val?.profileImage}
+                    cardPress={() => this.handleSelectedCard()}
+                    cardHeaderText={val?.grade}
+                    cardBodyImage={val?.profileImage}
                     titleText={val?.name}
-                    subText={val?.subText}
-                    cardFooterText={val?.time}
+                    subText={val?.barCodeNo}
+                    rightText={val?.date}
+                    rightSubText={val?.time}
+                    cardFooterImage={val?.barCodeImage}
+                    cardFooterText={val?.id}
                   />
                 ))}
             </ScrollView>
@@ -78,4 +70,4 @@ class CheckedOutList extends Component {
 
 // const actions = {};
 
-export default CheckedOutList; // connect(mapStateToProps, actions)(Empty);
+export default TagForChild; // connect(mapStateToProps, actions)(Empty);

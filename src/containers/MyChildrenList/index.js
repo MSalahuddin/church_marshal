@@ -42,6 +42,7 @@ class MyChildrenList extends Component {
               {userList.length > 0 &&
                 userList.map((val, ind) => (
                   <ProfileCard
+                    key={ind}
                     cardImage={val?.profileImage}
                     titleText={val?.name}
                     rightIcon={Images.delete_icon}

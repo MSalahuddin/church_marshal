@@ -51,8 +51,9 @@ class CheckedOutList extends Component {
           <View style={styles.listView}>
             <ScrollView>
               {list.length > 0 &&
-                list.map((val) => (
+                list.map((val, ind) => (
                   <ListCard
+                    key={ind}
                     isCardDisabled={false}
                     cardImage={val?.image}
                     titleText={val?.name}
