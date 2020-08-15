@@ -11,13 +11,25 @@ import styles from './styles';
 class MyChildrenList extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      userList: [
+        {profileImage: Images.profile_img, name: 'Alice, Johnson'},
+        {profileImage: Images.profile_img, name: 'Liiberth, Johnson'},
+        {profileImage: Images.profile_img, name: 'John, Elias'},
+      ],
+    };
   }
 
   handleCheckIn = () => {
     console.log('Check In');
   };
+
+  handleDeleteUser = (userId) => {
+    console.log(userId, 'Delete User');
+  };
+
   render() {
+    const {userList} = this.state;
     return (
       <View style={styles.container}>
         <Header
@@ -27,7 +39,15 @@ class MyChildrenList extends Component {
         <View style={styles.contentView}>
           <View style={styles.listView}>
             <ScrollView>
-              <ProfileCard />
+              {userList.length > 0 &&
+                userList.map((val, ind) => (
+                  <ProfileCard
+                    cardImage={val?.profileImage}
+                    titleText={val?.name}
+                    rightIcon={Images.delete_icon}
+                    rightIconPress={() => this.handleDeleteUser(ind)}
+                  />
+                ))}
             </ScrollView>
           </View>
           <SingleButton
