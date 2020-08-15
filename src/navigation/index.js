@@ -14,9 +14,9 @@ function Navigator() {
             screenOptions={{
             headerShown: false
         }}>
+          <Stack.Screen name="SelectUserScreen" component={SelectUserScreen} />
           <Stack.Screen name="Login" component={LoginScreen} />
           <Stack.Screen name="MyChildrenList" component={MyChildrenList} />
-          <Stack.Screen name="SelectUserScreen" component={SelectUserScreen} />
         </Stack.Navigator>
       </NavigationContainer>
     );

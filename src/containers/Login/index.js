@@ -19,10 +19,12 @@ class Login extends Component {
   }
 
   handleBackBtn = () => {
+    this.props.navigation.navigate("SelectUserScreen")
     console.log('Back');
   };
 
   handleLoginBtn = () => {
+    this.props.navigation.navigate("MyChildrenList")
     console.log('Login');
   };
 

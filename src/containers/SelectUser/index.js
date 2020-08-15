@@ -17,7 +17,10 @@ class SelectUser extends Component {
 
   renderChooseBtn = (btnText) => {
     return (
-      <TouchableOpacity style={styles.chooseBtn}>
+      <TouchableOpacity 
+        onPress = {() => {this.props.navigation.navigate("Login")}}
+        style={styles.chooseBtn} 
+      >
         <Text style={styles.chooseBtnText}>{btnText}</Text>
       </TouchableOpacity>
     );
