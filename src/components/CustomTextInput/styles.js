@@ -9,7 +9,7 @@ export default StyleSheet.create({
     color: Colors.Dove_Gray,
     borderBottomColor: Colors.Torch_Red,
     borderBottomWidth: Metrics.ratio(1),
-    fontFamily: Fonts.type.AvenirNextLTProRegular,
+    fontFamily: Fonts.type.AvenirNextLTProBold,
     paddingBottom: Metrics.ratio(1),
     paddingHorizontal: 0,
     marginBottom: Metrics.ratio(16),
