@@ -16,9 +16,8 @@ function Navigator() {
         screenOptions={{
           headerShown: false,
         }}>
-        <Stack.Screen name="TagForParent" component={TagForParent} />
-        <Stack.Screen name="SelectList" component={SelectList} />
         <Stack.Screen name="SelectUser" component={SelectUser} />
+        <Stack.Screen name="TagForParent" component={TagForParent} />
         <Stack.Screen name="SelectList" component={SelectList} />
         <Stack.Screen name="Login" component={Login} />
         <Stack.Screen name="MyChildrenList" component={MyChildrenList} />

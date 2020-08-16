@@ -18,17 +18,20 @@ class Login extends Component {
     };
   }
 
-  handleNavigation = (screen_name) => {
+  handleNavigation = (screen_name, userType) => {
     const {navigation} = this.props;
-    navigation.navigate(screen_name);
+    navigation.navigate(screen_name, {userType});
   };
 
   handleBackBtn = () => {
     this.handleNavigation('SelectUser');
   };
 
-  handleLoginBtn = () => {
+  handleLoginBtn = (userType) => {
+    if(userType === "parents")
     this.handleNavigation('MyChildrenList');
+    else
+    this.handleNavigation('SelectList');
   };
 
   onChangeChurchCode = (value) => this.setState({churchCode: value});
@@ -37,6 +40,7 @@ class Login extends Component {
 
   render() {
     const {churchCode, username, password} = this.state;
+    const {userType} = this.props.route.params;
     return (
       <View style={styles.container}>
         <Header headerLogo={Images.official_logo} headerText={'Login'} />
@@ -61,7 +65,7 @@ class Login extends Component {
             leftButtonText={'Back'}
             leftButtonPress={() => this.handleBackBtn()}
             rightButtonText={'Login'}
-            rightButtonPress={() => this.handleLoginBtn()}
+            rightButtonPress={() => this.handleLoginBtn(userType)}
           />
         </View>
       </View>
