@@ -53,6 +53,9 @@ class VisitorCheckedInList extends Component {
 
   handlePrint = (user) => {
     const {navigation} = this.props;
+    if(user.name == "John, Elias")
+    navigation.navigate("TagForParent");
+    else
     navigation.navigate("TagForChild");
     console.log(user,'user')
   }
@@ -61,8 +64,8 @@ class VisitorCheckedInList extends Component {
     return (
       <View style={styles.container}>
         <Header
-          headerLogo={Images.official_logo}
-          headerText={'Checked Out List'}
+          headerLogo={Images.client_logo}
+          headerText={'Checked In List'}
         />
         <View style={styles.contentView}>
           <View style={styles.listView}>

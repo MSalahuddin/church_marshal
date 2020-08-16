@@ -21,7 +21,7 @@ class CheckedOutList extends Component {
         {
           image: Images.calendar_icon,
           name: 'Visitor Check In',
-          screenName: 'Login',
+          screenName: 'VisitorCheckIn',
         },
         {
           image: Images.map_pin_icon,
@@ -51,7 +51,7 @@ class CheckedOutList extends Component {
            leftBtnPress = {() => this.handleNavigation("SelectUser")}
            rightIcon = {Images.logout_icon}
            rightBtnPress = {() => this.handleNavigation("Login")}
-           headerLogo={Images.official_logo}
+           headerLogo={Images.client_logo}
            headerText={'Select List'} />
         <View style={styles.contentView}>
           <View style={styles.listView}>

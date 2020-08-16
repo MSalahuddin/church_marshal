@@ -48,7 +48,7 @@ class CheckedOutList extends Component {
     return (
       <View style={styles.container}>
         <Header
-          headerLogo={Images.official_logo}
+          headerLogo={Images.client_logo}
           headerText={'Checked Out List'}
         />
         <View style={styles.contentView}>

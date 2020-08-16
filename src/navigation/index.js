@@ -10,6 +10,7 @@ import TagForChild from "../containers/TagForChild";
 import CheckedOutList from '../containers/CheckedOutList';
 import ChildCheckInList from '../containers/ChildCheckIn';
 import VisitorCheckedInList from "../containers/VisitorCheckedInList";
+import VisitorCheckIn from '../containers/VisitorCheckIn';
 const Stack = createStackNavigator();
 
 function Navigator() {
@@ -29,6 +30,8 @@ function Navigator() {
         <Stack.Screen name="ChildCheckInList" component={ChildCheckInList} />
         <Stack.Screen name="TagForChild" component={TagForChild} />
         <Stack.Screen name="VisitorCheckedInList" component={VisitorCheckedInList} />
+        <Stack.Screen name="VisitorCheckIn" component={VisitorCheckIn} />
+
       </Stack.Navigator>
     </NavigationContainer>
   );

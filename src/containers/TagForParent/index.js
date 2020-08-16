@@ -33,7 +33,7 @@ class TagForParent extends Component {
     return (
       <View style={styles.container}>
         <Header
-          headerLogo={Images.official_logo}
+          headerLogo={Images.client_logo}
           headerText={'Tag For Parent'}
         />
         <View style={styles.contentView}>

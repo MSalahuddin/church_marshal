@@ -14,7 +14,7 @@ import {Images} from '../../theme';
 
 import styles from './styles';
 
-class Login extends Component {
+class VisitorCheckIn extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -67,7 +67,7 @@ class Login extends Component {
     return (
       <View style={styles.container}>
         <Header
-          headerLogo={Images.official_logo}
+          headerLogo={Images.client_logo}
           headerText={'Visitor Check In'}
         />
         <ScrollView>
@@ -131,4 +131,4 @@ class Login extends Component {
 
 // const actions = {};
 
-export default Login; // connect(mapStateToProps, actions)(Empty);
+export default VisitorCheckIn; // connect(mapStateToProps, actions)(Empty);

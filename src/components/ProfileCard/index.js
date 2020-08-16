@@ -95,18 +95,19 @@ class ProfileCard extends Component {
                 <Text style={[styles.titleText, titleTextStyle]}>
                   {titleText}
                 </Text>
-                <TouchableOpacity onPress={headerPrintLabelPress}>
+                {printLabelIcon && <TouchableOpacity onPress={headerPrintLabelPress}>
                   <Image
                     source={printLabelIcon}
                     style={[styles.rightIcon, cardImageStyle]}
                     />
-                </TouchableOpacity>
+                </TouchableOpacity>}
+               {checkedIcon &&
                 <TouchableOpacity style = {headerCheckedIconStyle}  onPress={headerCheckedPress}>
                   <Image
                     source={checkedIcon}
                     style={[styles.rightIcon, cardImageStyle]}
                     />
-                </TouchableOpacity>
+                </TouchableOpacity>}
               </View>
               {subText ? (
                 <Text style={[styles.subText, subTextStyle]}>{subText}</Text>
