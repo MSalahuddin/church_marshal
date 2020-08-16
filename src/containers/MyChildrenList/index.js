@@ -12,6 +12,7 @@ class MyChildrenList extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      userId: 0,
       userList: [
         {profileImage: Images.profile_img, name: 'Alice, Johnson'},
         {profileImage: Images.profile_img, name: 'Liiberth, Johnson'},
@@ -24,8 +25,8 @@ class MyChildrenList extends Component {
     console.log('Check In');
   };
 
-  handleDeleteUser = (userId) => {
-    console.log(userId, 'Delete User');
+  handleCheck = (userId) => {
+    this.setState({userId})
   };
 
    handleNavigation = (screen_name) => {
@@ -34,7 +35,7 @@ class MyChildrenList extends Component {
   };
 
   render() {
-    const {userList} = this.state;
+    const {userList, userId} = this.state;
     return (
       <View style={styles.container}>
         <Header
@@ -54,8 +55,8 @@ class MyChildrenList extends Component {
                     key={ind}
                     cardImage={val?.profileImage}
                     titleText={val?.name}
-                    rightIcon={Images.delete_icon}
-                    rightIconPress={() => this.handleDeleteUser(ind)}
+                    rightIcon={ind == userId ? Images.checked_icon :Images.unchecked_icon}
+                    rightIconPress={() => this.handleCheck(ind)}
                   />
                 ))}
             </ScrollView>

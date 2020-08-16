@@ -13,6 +13,7 @@ class ChildCheckInList extends Component {
     super(props);
     this.state = {
       lastNameOrPhoneNo: "",
+      userId: 0,
       userList: [
         {profileImage: Images.profile_img, name: 'Alice, Johnson'},
         {profileImage: Images.profile_img, name: 'Liiberth, Johnson'},
@@ -25,8 +26,8 @@ class ChildCheckInList extends Component {
     console.log('Check In');
   };
 
-  handleDeleteUser = (userId) => {
-    console.log(userId, 'Delete User');
+  handleCheck = (userId) => {
+    this.setState({userId})
   };
 
   handleNavigation = (screen_name) => {
@@ -37,7 +38,7 @@ class ChildCheckInList extends Component {
   onChangeInputValue = (value) => this.setState({lastNameOrPhoneNo: value});
 
   render() {
-    const {userList,lastNameOrPhoneNo} = this.state;
+    const {userList,lastNameOrPhoneNo, userId} = this.state;
     return (
       <View style={styles.container}>
         <Header
@@ -63,8 +64,8 @@ class ChildCheckInList extends Component {
                     key={ind}
                     cardImage={val?.profileImage}
                     titleText={val?.name}
-                    rightIcon={Images.delete_icon}
-                    rightIconPress={() => this.handleDeleteUser(ind)}
+                    rightIcon={ind == userId ? Images.checked_icon :Images.unchecked_icon}
+                    rightIconPress={() => this.handleCheck(ind)}
                   />
                 ))}
             </ScrollView>

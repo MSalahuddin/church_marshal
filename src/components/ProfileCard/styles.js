@@ -46,6 +46,7 @@ export default StyleSheet.create({
     textTransform: 'uppercase',
     fontFamily: Fonts.type.AvenirNextLTProBold,
     color: Colors.Torch_Red,
+    width: Metrics.screenWidth * 0.5
   },
   subText: {
     fontSize: Metrics.ratio(14),
@@ -57,4 +58,7 @@ export default StyleSheet.create({
     width: Metrics.ratio(25),
     height: Metrics.ratio(25),
   },
+  footerView: {
+    flexDirection: "row"
+  }
 });

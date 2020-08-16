@@ -16,7 +16,7 @@ class CheckedOutList extends Component {
         {
           image: Images.right_icon,
           name: 'Child Check In',
-          screenName: 'Login',
+          screenName: 'ChildCheckInList',
         },
         {
           image: Images.calendar_icon,
@@ -26,7 +26,7 @@ class CheckedOutList extends Component {
         {
           image: Images.map_pin_icon,
           name: 'Checked In List',
-          screenName: 'ChildCheckInList',
+          screenName: 'VisitorCheckedInList',
         },
         {
           image: Images.clock_icon,

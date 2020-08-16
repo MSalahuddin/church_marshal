@@ -11,6 +11,9 @@ const clock_icon = require("../assets/images/icons/clock_icon.png");
 const calendar_icon = require("../assets/images/icons/calendar_icon.png");
 const map_pin_icon = require("../assets/images/icons/map_pin_icon.png");
 const right_icon = require("../assets/images/icons/right_icon.png");
+const checked_icon = require("../assets/images/icons/checked.png");
+const unchecked_icon = require("../assets/images/icons/unchecked.png");
+const print_label_icon = require("../assets/images/icons/print.png");
 // GENERAL
 const profile_img = require('../assets/images/general/profile_img.png');
 
@@ -28,6 +31,9 @@ export default {
   barcode_icon,
   home_icon,
   logout_icon,
+  checked_icon,
+  unchecked_icon,
+  print_label_icon,
   // GENERAL
   profile_img,
 };

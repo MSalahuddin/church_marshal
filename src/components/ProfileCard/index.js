@@ -11,6 +11,7 @@ class ProfileCard extends Component {
     cardImage: PropTypes.string,
     cardImageStyle: PropTypes.object,
     titleText: PropTypes.string,
+    date: PropTypes.string,
     titleTextStyle: PropTypes.object,
     subText: PropTypes.string,
     subTextStyle: PropTypes.object,
@@ -19,11 +20,19 @@ class ProfileCard extends Component {
     rightIconPress: PropTypes.func,
     cardFooterText: PropTypes.string,
     cardFooterTextStyle: PropTypes.object,
+    footerViewStyle: PropTypes.object,
+    headerViewStyle: PropTypes.object,
+    checkedIcon: PropTypes.string,
+    printLabelIcon: PropTypes.string,
+    headerCheckedIconStyle: PropTypes.object,
+    headerCheckedPress: PropTypes.func,
+    headerPrintLabelPress: PropTypes.func,
   };
   static defaultProps = {
     isCardDisabled: true,
     cardStyle: undefined,
     cardPress: undefined,
+    date: undefined,
     cardImage: '',
     cardImageStyle: undefined,
     titleText: '',
@@ -35,6 +44,13 @@ class ProfileCard extends Component {
     rightIconPress: undefined,
     cardFooterText: '',
     cardFooterTextStyle: undefined,
+    footerViewStyle: undefined,
+    headerViewStyle: undefined,
+    checkedIcon: undefined,
+    printLabelIcon: undefined,
+    headerCheckedIconStyle: undefined,
+    headerCheckedPress: undefined,
+    headerPrintLabelPress: undefined
   };
 
   render() {
@@ -53,7 +69,16 @@ class ProfileCard extends Component {
       rightIconPress,
       cardFooterText,
       cardFooterTextStyle,
+      date,
+      footerViewStyle,
+      headerViewStyle,
+      checkedIcon,
+      printLabelIcon,
+      headerCheckedIconStyle,
+      headerCheckedPress,
+      headerPrintLabelPress
     } = this.props;
+    
     return (
       <TouchableOpacity
         disabled={isCardDisabled}
@@ -66,12 +91,27 @@ class ProfileCard extends Component {
               style={[styles.cardImage, cardImageStyle]}
             />
             <View style={styles.titleView}>
-              <Text style={[styles.titleText, titleTextStyle]}>
-                {titleText}
-              </Text>
+              <View style = {headerViewStyle}>
+                <Text style={[styles.titleText, titleTextStyle]}>
+                  {titleText}
+                </Text>
+                <TouchableOpacity onPress={headerPrintLabelPress}>
+                  <Image
+                    source={printLabelIcon}
+                    style={[styles.rightIcon, cardImageStyle]}
+                    />
+                </TouchableOpacity>
+                <TouchableOpacity style = {headerCheckedIconStyle}  onPress={headerCheckedPress}>
+                  <Image
+                    source={checkedIcon}
+                    style={[styles.rightIcon, cardImageStyle]}
+                    />
+                </TouchableOpacity>
+              </View>
               {subText ? (
                 <Text style={[styles.subText, subTextStyle]}>{subText}</Text>
               ) : null}
+              
             </View>
           </View>
           <TouchableOpacity onPress={rightIconPress}>
@@ -82,7 +122,10 @@ class ProfileCard extends Component {
           </TouchableOpacity>
         </View>
         {cardFooterText ? (
-          <View>
+          <View style = {footerViewStyle}>
+            {subText ? (
+                <Text style={[styles.cardFooterText, cardFooterTextStyle]}>{date}</Text>
+              ) : null}
             <Text style={[styles.cardFooterText, cardFooterTextStyle]}>
               {cardFooterText}
             </Text>

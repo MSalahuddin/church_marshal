@@ -6,9 +6,10 @@ import SelectUser from '../containers/SelectUser';
 import MyChildrenList from '../containers/MyChildrenList';
 import SelectList from '../containers/SelectList';
 import TagForParent from '../containers/TagForParent';
+import TagForChild from "../containers/TagForChild";
 import CheckedOutList from '../containers/CheckedOutList';
 import ChildCheckInList from '../containers/ChildCheckIn';
-
+import VisitorCheckedInList from "../containers/VisitorCheckedInList";
 const Stack = createStackNavigator();
 
 function Navigator() {
@@ -18,6 +19,7 @@ function Navigator() {
         screenOptions={{
           headerShown: false,
         }}>
+        
         <Stack.Screen name="SelectUser" component={SelectUser} />
         <Stack.Screen name="TagForParent" component={TagForParent} />
         <Stack.Screen name="SelectList" component={SelectList} />
@@ -25,6 +27,8 @@ function Navigator() {
         <Stack.Screen name="MyChildrenList" component={MyChildrenList} />
         <Stack.Screen name="CheckedOutList" component={CheckedOutList} />
         <Stack.Screen name="ChildCheckInList" component={ChildCheckInList} />
+        <Stack.Screen name="TagForChild" component={TagForChild} />
+        <Stack.Screen name="VisitorCheckedInList" component={VisitorCheckedInList} />
       </Stack.Navigator>
     </NavigationContainer>
   );
