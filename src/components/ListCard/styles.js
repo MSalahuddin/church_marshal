@@ -23,10 +23,12 @@ export default StyleSheet.create({
     alignItems: 'center',
   },
   cardImage: {
-    width: Metrics.ratio(65),
-    height: Metrics.ratio(65),
+    width: Metrics.ratio(55),
+    height: Metrics.ratio(55),
     marginLeft: Metrics.screenWidth * 0.05,
     marginRight: Metrics.screenWidth * 0.025,
+    marginVertical: Metrics.ratio(10)
+
   },
   titleText: {
     flex: 1,

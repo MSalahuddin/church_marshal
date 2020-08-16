@@ -5,7 +5,7 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 
 import styles from './styles';
 
-import {Metrics, Colors} from '../../theme';
+import {Metrics, Colors, Images} from '../../theme';
 
 class Header extends Component {
   static propTypes = {
@@ -58,11 +58,10 @@ class Header extends Component {
         <TouchableOpacity
           style={[styles.TouchableMenu, leftIconStyle]}
           onPress={leftBtnPress}>
-          <Icon
-            size={leftIconSize ? leftIconSize : Metrics.ratio(20)}
-            color={Colors.White}
-            name={leftIcon}
-          />
+            <Image
+              source={leftIcon}
+              style={[styles.rightIcon, headerLogoStyle]}
+            />
         </TouchableOpacity>
         <View style={styles.centerView}>
           {headerLogo && (
@@ -76,11 +75,11 @@ class Header extends Component {
         <TouchableOpacity
           onPress={rightBtnPress}
           style={[styles.TouchableMenu, rightIconStyle]}>
-          <Icon
-            size={rightIconSize ? rightIconSize : Metrics.ratio(20)}
-            color={Colors.White}
-            name={rightIcon}
-          />
+            <Image
+              resizeMethod = "auto"
+              source={rightIcon}
+              style={[styles.rightIcon, headerLogoStyle]}
+            />
         </TouchableOpacity>
       </View>
     );

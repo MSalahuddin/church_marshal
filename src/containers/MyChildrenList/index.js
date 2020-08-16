@@ -28,11 +28,20 @@ class MyChildrenList extends Component {
     console.log(userId, 'Delete User');
   };
 
+  handleNavigation = (screen_name) => {
+    const {navigation} = this.props;
+    navigation.navigate(screen_name);
+  };
+
   render() {
     const {userList} = this.state;
     return (
       <View style={styles.container}>
         <Header
+          leftIcon = {Images.home_icon}
+          leftBtnPress = {() => this.handleNavigation("SelectUser")}
+          rightIcon = {Images.logout_icon}
+          rightBtnPress = {() => this.handleNavigation("Login")}
           headerLogo={Images.client_logo}
           headerText={'List of My Children'}
         />

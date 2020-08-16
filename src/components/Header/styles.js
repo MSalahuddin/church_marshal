@@ -24,6 +24,11 @@ export default StyleSheet.create({
     height: Metrics.ratio(45),
     marginRight: Metrics.ratio(8),
   },
+  rightIcon: {
+    width: Metrics.ratio(25),
+    height: Metrics.ratio(25),
+    marginRight: Metrics.ratio(8),
+  },
   headerText: {
     textTransform: 'uppercase',
     textAlign: 'center',

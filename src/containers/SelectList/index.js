@@ -14,22 +14,22 @@ class CheckedOutList extends Component {
     this.state = {
       list: [
         {
-          image: Images.profile_img,
+          image: Images.right_icon,
           name: 'Child Check In',
           screenName: 'Login',
         },
         {
-          image: Images.profile_img,
+          image: Images.calendar_icon,
           name: 'Visitor Check In',
           screenName: 'Login',
         },
         {
-          image: Images.profile_img,
+          image: Images.map_pin_icon,
           name: 'Checked In List',
           screenName: 'Login',
         },
         {
-          image: Images.profile_img,
+          image: Images.clock_icon,
           name: 'Checked Out List',
           screenName: 'Login',
         },
@@ -46,7 +46,13 @@ class CheckedOutList extends Component {
     const {list} = this.state;
     return (
       <View style={styles.container}>
-        <Header headerLogo={Images.official_logo} headerText={'Select List'} />
+        <Header 
+           leftIcon = {Images.home_icon}
+           leftBtnPress = {() => this.handleNavigation("SelectUser")}
+           rightIcon = {Images.logout_icon}
+           rightBtnPress = {() => this.handleNavigation("Login")}
+           headerLogo={Images.official_logo}
+           headerText={'Select List'} />
         <View style={styles.contentView}>
           <View style={styles.listView}>
             <ScrollView>
