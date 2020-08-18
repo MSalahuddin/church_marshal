@@ -31,6 +31,11 @@ class TagForChild extends Component {
     console.log('Selected Card');
   };
 
+  handleNavigation = (screen_name) => {
+    const {navigation} = this.props;
+    navigation.navigate(screen_name);
+  };
+
   render() {
     const {userList} = this.state;
     return (
@@ -38,6 +43,10 @@ class TagForChild extends Component {
         <Header
           headerLogo={Images.client_logo}
           headerText={'Tag For Child'}
+          rightIcon = {Images.logout_icon}
+          rightBtnPress = {() => this.handleNavigation("Login")}
+          leftIcon = {Images.home_icon}
+          leftBtnPress = {() => this.handleNavigation("SelectUser")}
         />
         <View style={styles.contentView}>
           <View style={styles.listView}>

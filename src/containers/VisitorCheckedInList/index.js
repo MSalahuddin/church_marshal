@@ -3,7 +3,7 @@
 import React, {Component} from 'react';
 import {View, ScrollView, Text} from 'react-native';
 
-import {Header, ProfileCard} from '../../components';
+import {Header, ProfileCard, DoubleButton} from '../../components';
 import {Images} from '../../theme';
 
 import styles from './styles';
@@ -59,6 +59,20 @@ class VisitorCheckedInList extends Component {
     navigation.navigate("TagForChild");
     console.log(user,'user')
   }
+
+  handleCancelBtn = () => {
+    console.log('Cancel');
+  };
+
+  handleCheckInBtn = () => {
+    console.log('Check In');
+  };
+
+  handleNavigation = (screen_name) => {
+    const {navigation} = this.props;
+    navigation.navigate(screen_name);
+  };
+
   render() {
     const {userList, userId} = this.state;
     return (
@@ -66,6 +80,10 @@ class VisitorCheckedInList extends Component {
         <Header
           headerLogo={Images.client_logo}
           headerText={'Checked In List'}
+          rightIcon = {Images.logout_icon}
+          rightBtnPress = {() => this.handleNavigation("Login")}
+          leftIcon = {Images.home_icon}
+          leftBtnPress = {() => this.handleNavigation("SelectUser")}
         />
         <View style={styles.contentView}>
           <View style={styles.listView}>
@@ -90,6 +108,12 @@ class VisitorCheckedInList extends Component {
                     
                   />
                 ))}
+                 <DoubleButton
+              leftButtonText={'Cancel'}
+              leftButtonPress={() => this.handleCancelBtn()}
+              rightButtonText={'Check Child out'}
+              rightButtonPress={() => this.handleCheckInBtn()}
+            />
             </ScrollView>
           </View>
         </View>

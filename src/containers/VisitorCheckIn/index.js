@@ -18,7 +18,7 @@ class VisitorCheckIn extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      gender: 'Choose Gender',
+      gender: 'Choose Gender  *',
       genderList: ['Choose Gender', 'Male', 'Female'],
       firstName: null,
       lastName: null,
@@ -69,6 +69,10 @@ class VisitorCheckIn extends Component {
         <Header
           headerLogo={Images.client_logo}
           headerText={'Visitor Check In'}
+          rightIcon = {Images.logout_icon}
+          rightBtnPress = {() => this.handleNavigation("Login")}
+          leftIcon = {Images.home_icon}
+          leftBtnPress = {() => this.handleNavigation("SelectUser")}
         />
         <ScrollView>
           <View style={styles.contentView}>
@@ -80,16 +84,16 @@ class VisitorCheckIn extends Component {
             <CustomTextInput
               onChangeText={this.onChangeFirstName}
               textInputValue={firstName}
-              placeholder={'FIRST NAME'}
+              placeholder={'FIRST NAME *'}
             />
             <CustomTextInput
               onChangeText={this.onChangeLastName}
               textInputValue={lastName}
-              placeholder={'LAST NAME'}
+              placeholder={'LAST NAME *'}
             />
             <CustomDatePicker
               date={dateOfBirth}
-              placeholder={'DATE OF BIRTH'}
+              placeholder={'DATE OF BIRTH *'}
               minDate={new Date(1970)}
               maxDate={new Date()}
               onChangeDate={this.onChangeDateOfBirth}
@@ -97,17 +101,17 @@ class VisitorCheckIn extends Component {
             <CustomTextInput
               onChangeText={this.onChangeGuardianName}
               textInputValue={guardianName}
-              placeholder={'GUARDIAN NAME'}
+              placeholder={'GUARDIAN NAME *'}
             />
             <CustomTextInput
               onChangeText={this.onChangeGuardianPhone}
               textInputValue={guardianPhone}
-              placeholder={'GUARDIAN PHONE'}
+              placeholder={'GUARDIAN PHONE *'}
             />
             <CustomTextInput
               onChangeText={this.onChangeGuardianEmail}
               textInputValue={guardianEmail}
-              placeholder={'GUARDIAN EMAIL'}
+              placeholder={'GUARDIAN EMAIL *'}
             />
             <CustomTextInput
               onChangeText={this.onChangeComment}

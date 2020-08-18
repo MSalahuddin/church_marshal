@@ -43,6 +43,11 @@ class CheckedOutList extends Component {
     console.log(userId, 'Delete User');
   };
 
+  handleNavigation = (screen_name) => {
+    const {navigation} = this.props;
+    navigation.navigate(screen_name);
+  };
+
   render() {
     const {userList} = this.state;
     return (
@@ -50,6 +55,10 @@ class CheckedOutList extends Component {
         <Header
           headerLogo={Images.client_logo}
           headerText={'Checked Out List'}
+          rightIcon = {Images.logout_icon}
+          rightBtnPress = {() => this.handleNavigation("Login")}
+          leftIcon = {Images.home_icon}
+          leftBtnPress = {() => this.handleNavigation("SelectUser")}
         />
         <View style={styles.contentView}>
           <Text style={styles.dateText}>Sunday, 30 Sep, 2020</Text>
