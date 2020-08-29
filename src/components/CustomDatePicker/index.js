@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import DatePicker from 'react-native-datepicker';
+import Orientation from 'react-native-orientation';
+import {Metrics} from "../../theme";
 
 import styles from './styles';
 
@@ -28,6 +30,24 @@ class CustomDatePicker extends Component {
     placeholderTextStyle: undefined,
   };
 
+  constructor(props){
+    super(props);
+    this.state = {
+
+    }
+  }
+
+  componentWillMount(){
+    Orientation.getOrientation((err, orientation) => {
+      if(orientation == "PORTRAIT")
+        this.setState({datePickerWidth: Metrics.screenWidth * 0.9});
+      else
+      this.setState({datePickerWidth: Metrics.screenHeight * 0.95});
+    });
+  }
+
+
+
   render() {
     const {
       date,
@@ -40,10 +60,10 @@ class CustomDatePicker extends Component {
       dateTextStyle,
       placeholderTextStyle,
     } = this.props;
-
+    const {datePickerWidth} = this.state;
     return (
       <DatePicker
-        style={[styles.datePicker, datePickerStyle]}
+        style={[styles.datePicker, datePickerStyle, {width: datePickerWidth}]}
         date={date}
         mode="date"
         placeholder={placeholder}

@@ -6,7 +6,7 @@ import {
   Platform
 } from 'react-native';
 import styles from './styles';
-import PropTypes from 'prop-types';
+import Orientation from 'react-native-orientation';
 
 import {Images, Metrics} from '../../theme';
 
@@ -19,6 +19,16 @@ class EditProfileImage extends Component {
     isloading: false,
     token: '',
   };
+  
+  componentWillMount(){
+    Orientation.getOrientation((err, orientation) => {
+      if(orientation == "PORTRAIT")
+        this.setState({positionRight: 130});
+      else
+      this.setState({positionRight: 300});
+    });
+  }
+
 
   uploadPicture = () => {
     let options = {};
@@ -74,6 +84,7 @@ class EditProfileImage extends Component {
     const {
       avatarSource,
       profileThumbnail,
+      positionRight
     } = this.state;
     
 
@@ -89,7 +100,7 @@ class EditProfileImage extends Component {
               borderRadius: Metrics.ratio(200),
               position: 'absolute',
               bottom: 0,
-              right: 125,
+              right: positionRight,
             }}>
             <TouchableOpacity onPress={this.uploadPicture}>
               <Image

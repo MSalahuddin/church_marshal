@@ -14,7 +14,8 @@ export default StyleSheet.create({
     alignItems: 'center',
   },
   centerView: {
-    width: Metrics.screenWidth - Metrics.doubleBaseMargin,
+    // width: Metrics.screenWidth - Metrics.doubleBaseMargin,
+    flex: 1,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',

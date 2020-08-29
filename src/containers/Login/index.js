@@ -1,7 +1,7 @@
 // @flow
 // import { connect } from "react-redux";
 import React, {Component} from 'react';
-import {View} from 'react-native';
+import {View, ScrollView} from 'react-native';
 
 import {Header, CustomTextInput, DoubleButton} from '../../components';
 import {Images} from '../../theme';
@@ -46,30 +46,32 @@ class Login extends Component {
     return (
       <View style={styles.container}>
         <Header headerLogo={Images.official_logo} headerText={naviagationHeader} />
-        <View style={styles.contentView}>
-          <CustomTextInput
-            onChangeText={this.onChangeChurchCode}
-            textInputValue={churchCode}
-            placeholder={'CHURCH CODE'}
-          />
-          <CustomTextInput
-            onChangeText={this.onChangeUsername}
-            textInputValue={username}
-            placeholder={'USERNAME'}
-          />
-          <CustomTextInput
-            onChangeText={this.onChangePassword}
-            textInputValue={password}
-            placeholder={'PASSWORD'}
-            secureTextEntry={true}
-          />
-          <DoubleButton
-            leftButtonText={'Back'}
-            leftButtonPress={() => this.handleBackBtn()}
-            rightButtonText={'Login'}
-            rightButtonPress={() => this.handleLoginBtn(userType)}
-          />
-        </View>
+        <ScrollView>
+          <View style={styles.contentView}>
+            <CustomTextInput
+              onChangeText={this.onChangeChurchCode}
+              textInputValue={churchCode}
+              placeholder={'CHURCH CODE'}
+            />
+            <CustomTextInput
+              onChangeText={this.onChangeUsername}
+              textInputValue={username}
+              placeholder={'USERNAME'}
+            />
+            <CustomTextInput
+              onChangeText={this.onChangePassword}
+              textInputValue={password}
+              placeholder={'PASSWORD'}
+              secureTextEntry={true}
+            />
+            <DoubleButton
+              leftButtonText={'Back'}
+              leftButtonPress={() => this.handleBackBtn()}
+              rightButtonText={'Login'}
+              rightButtonPress={() => this.handleLoginBtn(userType)}
+            />
+          </View>
+        </ScrollView>
       </View>
     );
   }

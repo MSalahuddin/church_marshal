@@ -119,10 +119,10 @@ class VisitorCheckedInList extends Component {
                     date = {val?.date}
                     headerViewStyle = {styles.profileCardHeader}
                     footerViewStyle = {styles.footerViewStyle}
-                    checkedIcon = {checkUser.includes(ind) ? Images.checked_icon : Images.unchecked_icon}
+                    rightIcon={checkUser.includes(ind)  ? Images.checked_icon :Images.unchecked_icon}
+                    rightIconPress={() => this.handleCheck(ind)}
+                    rightIconStyle = {styles.profileCardheaderChecked}
                     printLabelIcon = {Images.print_label_icon}
-                    headerCheckedIconStyle = {styles.profileCardheaderChecked}
-                    headerCheckedPress = {() => this.handleCheck(ind)}
                     headerPrintLabelPress = {() => this.handlePrint(val)}
                     
                   />

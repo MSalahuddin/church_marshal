@@ -19,7 +19,8 @@ export default StyleSheet.create({
     elevation: 6,
   },
   cardImage: {
-   flex: 1
+    width: 60,
+    height: 60
   },
   cardBody: {
     flexDirection: 'row',
@@ -38,7 +39,7 @@ export default StyleSheet.create({
   },
   titleView: {
     marginLeft: Metrics.ratio(8),
-    width: Metrics.screenWidth * 0.57,
+    // width: Metrics.screenWidth * 0.57,
   },
   titleText: {
     fontSize: Metrics.ratio(16),

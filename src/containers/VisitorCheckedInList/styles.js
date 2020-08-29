@@ -27,6 +27,7 @@ export default StyleSheet.create({
     justifyContent: "space-between",
   },
   profileCardheaderChecked: {
-    marginLeft: Metrics.screenWidth * 0.03
+    marginLeft: Metrics.screenWidth * 0.03,
+    marginRight:  Metrics.screenWidth * 0.02,
   }
 });

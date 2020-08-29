@@ -1,7 +1,7 @@
 // @flow
 // import { connect } from "react-redux";
 import React, {Component} from 'react';
-import {Text, View, TouchableOpacity} from 'react-native';
+import {Text, View, TouchableOpacity, ScrollView} from 'react-native';
 
 import {Header, SingleButton} from '../../components';
 import {Images} from '../../theme';
@@ -36,6 +36,7 @@ class SelectUser extends Component {
     return (
       <View style={styles.container}>
         <Header headerLogo={Images.official_logo} headerText={'Select User'} />
+        <ScrollView>
         <View style={styles.contentView}>
           <View>
             {this.renderLabel('Parents')}
@@ -50,6 +51,7 @@ class SelectUser extends Component {
             btnPress={() => this.handleBackBtn()}
           />
         </View>
+        </ScrollView>
       </View>
     );
   }
