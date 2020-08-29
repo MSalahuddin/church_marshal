@@ -9,9 +9,9 @@ import {Images} from '../../theme';
 import styles from './styles';
 
 class SelectUser extends Component {
-  handleNavigation = (screen_name, userType) => {
+  handleNavigation = (screen_name, userType, naviagationHeader) => {
     const {navigation} = this.props;
-    navigation.navigate(screen_name, {userType});
+    navigation.navigate(screen_name, {userType, naviagationHeader});
   };
 
   handleBackBtn = () => {
@@ -20,11 +20,11 @@ class SelectUser extends Component {
 
   renderLabel = (text) => <Text style={styles.labelText}>{text}</Text>;
 
-  renderChooseBtn = (btnText, userType) => {
+  renderChooseBtn = (btnText, userType, naviagationHeader) => {
     return (
       <TouchableOpacity
         onPress={() => {
-          this.handleNavigation('Login', userType);
+          this.handleNavigation('Login', userType, naviagationHeader);
         }}
         style={styles.chooseBtn}>
         <Text style={styles.chooseBtnText}>{btnText}</Text>
@@ -39,9 +39,11 @@ class SelectUser extends Component {
         <View style={styles.contentView}>
           <View>
             {this.renderLabel('Parents')}
-            {this.renderChooseBtn('Check In My Child', "parents")}
+            {this.renderChooseBtn('Check In My Child', "parents", "Parent Login")}
             {this.renderLabel('Church Admin')}
-            {this.renderChooseBtn('Check In Children', "churchAdmin")}
+            {this.renderChooseBtn('Check In Children', "churchAdmin", "Admin Login")}
+            {this.renderLabel('Workers/Members')}
+            {this.renderChooseBtn('Check In Myself', "member", "Workers/Event Login")}
           </View>
           <SingleButton
             btnText={'Back'}

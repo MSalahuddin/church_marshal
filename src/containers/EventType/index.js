@@ -8,35 +8,20 @@ import {Images} from '../../theme';
 
 import styles from './styles';
 
-class CheckedOutList extends Component {
+class EventType extends Component {
   constructor(props) {
     super(props);
     this.state = {
       list: [
         {
           image: Images.right_icon,
-          name: 'Child Check In',
-          screenName: 'ChildCheckInList',
+          name: 'Events',
+          screenName: 'EventList',
         },
         {
           image: Images.calendar_icon,
-          name: 'Visitor Check In',
-          screenName: 'VisitorCheckIn',
-        },
-        {
-          image: Images.map_pin_icon,
-          name: 'Checked In List',
-          screenName: 'VisitorCheckedInList',
-        },
-        {
-          image: Images.clock_icon,
-          name: 'Checked Out List',
-          screenName: 'CheckedOutList',
-        },
-        {
-          image: Images.clock_icon,
-          name: 'Worker/Member Check in List',
-          screenName: 'MemberCheckInList',
+          name: 'Church Service',
+          screenName: 'ServiceList',
         },
       ],
     };
@@ -57,7 +42,7 @@ class CheckedOutList extends Component {
            rightIcon = {Images.logout_icon}
            rightBtnPress = {() => this.handleNavigation("Login")}
            headerLogo={Images.client_logo}
-           headerText={'Select List'} />
+           headerText={'Event Type'} />
         <View style={styles.contentView}>
           <View style={styles.listView}>
             <ScrollView>
@@ -79,8 +64,4 @@ class CheckedOutList extends Component {
   }
 }
 
-// const mapStateToProps = () => ({});
-
-// const actions = {};
-
-export default CheckedOutList; // connect(mapStateToProps, actions)(Empty);
+export default EventType; 

@@ -3,7 +3,7 @@
 import React, {Component} from 'react';
 import {View, ScrollView, Text} from 'react-native';
 
-import {Header, ProfileCard} from '../../components';
+import {Header, ProfileCard, CustomTextInput} from '../../components';
 import {Images} from '../../theme';
 
 import styles from './styles';
@@ -12,6 +12,7 @@ class CheckedOutList extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      inputVal: "",
       userList: [
         {
           profileImage: Images.profile_img,
@@ -48,8 +49,10 @@ class CheckedOutList extends Component {
     navigation.navigate(screen_name);
   };
 
+  onChangeInputValue = (value) => this.setState({inputVal: value});
+
   render() {
-    const {userList} = this.state;
+    const {userList, inputVal} = this.state;
     return (
       <View style={styles.container}>
         <Header
@@ -63,6 +66,11 @@ class CheckedOutList extends Component {
         <View style={styles.contentView}>
           <Text style={styles.dateText}>Sunday, 30 Sep, 2020</Text>
           <View style={styles.listView}>
+          <CustomTextInput
+              onChangeText={this.onChangeInputValue}
+              textInputValue={inputVal}
+              placeholder={'Search'}
+            />
             <ScrollView>
               {userList.length > 0 &&
                 userList.map((val, ind) => (

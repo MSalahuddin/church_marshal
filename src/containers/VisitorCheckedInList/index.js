@@ -3,7 +3,7 @@
 import React, {Component} from 'react';
 import {View, ScrollView, Text} from 'react-native';
 
-import {Header, ProfileCard, DoubleButton} from '../../components';
+import {Header, ProfileCard, DoubleButton, CustomTextInput} from '../../components';
 import {Images} from '../../theme';
 
 import styles from './styles';
@@ -12,7 +12,8 @@ class VisitorCheckedInList extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      userId: 0,
+      inputVal: "",
+      checkUser: [],
       userList: [
         {
           profileImage: Images.profile_img,
@@ -40,15 +41,26 @@ class VisitorCheckedInList extends Component {
   }
 
   handleCheckIn = () => {
-    console.log('Check In');
+
   };
 
   handleDeleteUser = (userId) => {
-    console.log(userId, 'Delete User');
+   
   };
 
   handleCheck = (userId) => {
-    this.setState({userId})
+    let {checkUser} = this.state;
+
+    let arr = [...checkUser];
+    let isChecked = arr.includes(userId);
+    if(!isChecked){
+      arr.push(userId);
+    }
+    else{
+      let index = arr.indexOf(userId);
+      arr.splice(index, 1);
+    }
+    this.setState({checkUser: arr})
   };
 
   handlePrint = (user) => {
@@ -73,8 +85,10 @@ class VisitorCheckedInList extends Component {
     navigation.navigate(screen_name);
   };
 
+  onChangeInputValue = (value) => this.setState({inputVal: value});
+
   render() {
-    const {userList, userId} = this.state;
+    const {userList, checkUser, inputVal} = this.state;
     return (
       <View style={styles.container}>
         <Header
@@ -87,12 +101,17 @@ class VisitorCheckedInList extends Component {
         />
         <View style={styles.contentView}>
           <View style={styles.listView}>
+          <CustomTextInput
+              onChangeText={this.onChangeInputValue}
+              textInputValue={inputVal}
+              placeholder={'Search'}
+            />
             <ScrollView>
               {userList.length > 0 &&
                 userList.map((val, ind) => (
                   <ProfileCard
                     key={ind}
-                    isCardDisabled={false}
+                    isCardDisabled={true}
                     cardImage={val?.profileImage}
                     titleText={val?.name}
                     subText={val?.subText}
@@ -100,7 +119,7 @@ class VisitorCheckedInList extends Component {
                     date = {val?.date}
                     headerViewStyle = {styles.profileCardHeader}
                     footerViewStyle = {styles.footerViewStyle}
-                    checkedIcon = {userId == ind ? Images.checked_icon : Images.unchecked_icon}
+                    checkedIcon = {checkUser.includes(ind) ? Images.checked_icon : Images.unchecked_icon}
                     printLabelIcon = {Images.print_label_icon}
                     headerCheckedIconStyle = {styles.profileCardheaderChecked}
                     headerCheckedPress = {() => this.handleCheck(ind)}

@@ -5,13 +5,7 @@ import PropTypes from 'prop-types';
 import styles from './styles';
 import {Metrics} from "../../theme";
 
-class MemberListCard extends Component {
-  constructor(props){
-    super(props);
-    this.state = {
-    
-    }
-  }
+class ProfileCard extends Component {
   static propTypes = {
     isCardDisabled: PropTypes.bool,
     cardStyle: PropTypes.object,
@@ -20,6 +14,8 @@ class MemberListCard extends Component {
     cardImageStyle: PropTypes.object,
     titleText: PropTypes.string,
     date: PropTypes.string,
+    time: PropTypes.string,
+    type: PropTypes.string,
     titleTextStyle: PropTypes.object,
     subText: PropTypes.string,
     subTextStyle: PropTypes.object,
@@ -41,6 +37,8 @@ class MemberListCard extends Component {
     cardStyle: undefined,
     cardPress: undefined,
     date: undefined,
+    time: undefined,
+    type: undefined,
     cardImage: '',
     cardImageStyle: undefined,
     titleText: '',
@@ -91,6 +89,8 @@ class MemberListCard extends Component {
       cardFooterText,
       cardFooterTextStyle,
       date,
+      time,
+      type,
       footerViewStyle,
       headerViewStyle,
       checkedIcon,
@@ -99,7 +99,7 @@ class MemberListCard extends Component {
       headerCheckedPress,
       headerPrintLabelPress
     } = this.props;
-
+    
     return (
       <TouchableOpacity
         disabled={isCardDisabled}
@@ -107,69 +107,46 @@ class MemberListCard extends Component {
         onPress={cardPress}>
         <View style={styles.cardBody}>
           <View style={styles.cardBodyRow}>
-          <Lightbox
-           renderHeader={close => (
-            <TouchableOpacity onPress={close}>
-              <Text style={styles.closeButton}>Close</Text>
-            </TouchableOpacity>
-          )}
-           underlayColor="white"
-           renderContent={this.renderLightBoxImage}
-          >
-            <Image
-             source={cardImage}
-             resizeMode="contain"
-             style={[
-               styles.cardImage, cardImageStyle
-              ]}
-           />
-          </Lightbox>
-          
-            <View style={styles.titleView}>
-              <View style = {headerViewStyle}>
-                <Text style={[styles.titleText, titleTextStyle]}>
-                  {titleText}
-                </Text>
-                {printLabelIcon && <TouchableOpacity onPress={headerPrintLabelPress}>
-                  <Image
-                    source={printLabelIcon}
-                    style={[styles.rightIcon, cardImageStyle]}
-                    />
-                </TouchableOpacity>}
-               {checkedIcon &&
-                <TouchableOpacity style = {headerCheckedIconStyle}  onPress={headerCheckedPress}>
-                  <Image
-                    source={checkedIcon}
-                    style={[styles.rightIcon, cardImageStyle]}
-                    />
-                </TouchableOpacity>}
+            <Lightbox
+            renderHeader={close => (
+              <TouchableOpacity onPress={close}>
+                <Text style={styles.closeButton}>Close</Text>
+              </TouchableOpacity>
+            )}
+            underlayColor="white"
+            renderContent={this.renderLightBoxImage}
+            >
+              <Image
+              source={cardImage}
+              resizeMode="contain"
+              style={[
+                styles.cardImage, cardImageStyle
+                ]}
+            />
+            </Lightbox>
+            <View>
+              <View style={styles.titleView}>
+                <View style = {headerViewStyle}>
+                  <Text style={[styles.titleText, titleTextStyle]}>
+                    {titleText}
+                  </Text>
+                </View>
               </View>
-              {subText ? (
-                <Text style={[styles.subText, subTextStyle]}>{subText}</Text>
-              ) : null}
-              
+              <View>
+              <Text style={[styles.cardTypeText, cardFooterTextStyle]}>{type}</Text>
+              </View>
+    
             </View>
           </View>
-          <TouchableOpacity onPress={rightIconPress}>
-            <Image
-              source={rightIcon}
-              style={[styles.rightIcon, rightIconStyle]}
-            />
-          </TouchableOpacity>
+         
         </View>
-        {cardFooterText ? (
-          <View style = {footerViewStyle}>
-            {subText ? (
-                <Text style={[styles.cardFooterText, cardFooterTextStyle]}>{date}</Text>
-              ) : null}
-            <Text style={[styles.cardFooterText, cardFooterTextStyle]}>
-              {cardFooterText}
-            </Text>
-          </View>
-        ) : null}
+        <View style = {[styles.footerView,footerViewStyle]}>
+                  <Text style={[styles.cardFooterText, cardFooterTextStyle]}>{date}</Text>
+                  <Text style={[styles.cardFooterText, cardFooterTextStyle]}>{time}</Text>
+              </View>
       </TouchableOpacity>
     );
   }
 }
 
-export default MemberListCard;
+export default ProfileCard;

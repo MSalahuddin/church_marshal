@@ -7,8 +7,8 @@ export default StyleSheet.create({
     backgroundColor: Colors.White,
     marginHorizontal: Metrics.screenWidth * 0.05,
     marginBottom: Metrics.ratio(24),
-    padding: Metrics.ratio(8),
     borderRadius: Metrics.ratio(5),
+    padding: Metrics.ratio(8),
     shadowColor: Colors.Black,
     shadowOffset: {
       width: 0,
@@ -19,7 +19,8 @@ export default StyleSheet.create({
     elevation: 6,
   },
   cardImage: {
-   flex: 1
+    width: Metrics.ratio(60),
+    height: Metrics.ratio(60),
   },
   cardBody: {
     flexDirection: 'row',
@@ -56,18 +57,12 @@ export default StyleSheet.create({
   rightIcon: {
     width: Metrics.ratio(25),
     height: Metrics.ratio(25),
+    margin: Metrics.ratio(8),
+    
   },
   footerView: {
-    flexDirection: "row"
-  },
-  closeButton: {
-    color: 'white',
-    borderWidth: 1,
-    borderColor: 'white',
-    padding: 8,
-    borderRadius: 3,
-    textAlign: 'center',
-    margin: 10,
-    alignSelf: 'flex-end',
-  },
+    flexDirection: "row",
+    padding: Metrics.ratio(8),
+    justifyContent: "space-between"
+  }
 });

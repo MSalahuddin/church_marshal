@@ -14,6 +14,7 @@ const right_icon = require("../assets/images/icons/right_icon.png");
 const checked_icon = require("../assets/images/icons/checked.png");
 const unchecked_icon = require("../assets/images/icons/unchecked.png");
 const print_label_icon = require("../assets/images/icons/print.png");
+const profile_camera_icon = require("../assets/images/icons/profile_camera.png");
 // GENERAL
 const profile_img = require('../assets/images/general/profile_img.png');
 
@@ -34,6 +35,7 @@ export default {
   checked_icon,
   unchecked_icon,
   print_label_icon,
+  profile_camera_icon,
   // GENERAL
   profile_img,
 };

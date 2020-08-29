@@ -19,7 +19,8 @@ export default StyleSheet.create({
     elevation: 6,
   },
   cardImage: {
-   flex: 1
+    width: Metrics.ratio(60),
+    height: Metrics.ratio(60),
   },
   cardBody: {
     flexDirection: 'row',
@@ -35,6 +36,13 @@ export default StyleSheet.create({
     fontSize: Metrics.ratio(14),
     fontFamily: Fonts.type.AvenirNextLTProBold,
     color: Colors.Dove_Gray,
+  },
+  cardTypeText: {
+    textAlign: 'left',
+    fontSize: Metrics.ratio(14),
+    fontFamily: Fonts.type.AvenirNextLTProBold,
+    color: Colors.Dove_Gray,
+    marginLeft: Metrics.ratio(8),
   },
   titleView: {
     marginLeft: Metrics.ratio(8),
@@ -58,7 +66,10 @@ export default StyleSheet.create({
     height: Metrics.ratio(25),
   },
   footerView: {
-    flexDirection: "row"
+    flexDirection: "row",
+    marginTop: Metrics.ratio(5),
+    marginLeft: Metrics.screenWidth * 0.19,
+    justifyContent: "space-between",
   },
   closeButton: {
     color: 'white',

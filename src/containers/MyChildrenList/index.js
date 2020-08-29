@@ -3,7 +3,7 @@
 import React, {Component} from 'react';
 import {View, ScrollView} from 'react-native';
 
-import {Header, SingleButton, ProfileCard} from '../../components';
+import {Header, SingleButton, ProfileCard, CustomTextInput} from '../../components';
 import {Images} from '../../theme';
 
 import styles from './styles';
@@ -12,7 +12,8 @@ class MyChildrenList extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      userId: 0,
+      checkUser: [],
+      inputVal: "",
       userList: [
         {profileImage: Images.profile_img, name: 'Alice, Johnson'},
         {profileImage: Images.profile_img, name: 'Liiberth, Johnson'},
@@ -22,11 +23,22 @@ class MyChildrenList extends Component {
   }
 
   handleCheckIn = () => {
-    console.log('Check In');
+    
   };
 
   handleCheck = (userId) => {
-    this.setState({userId})
+    let {checkUser} = this.state;
+
+    let arr = [...checkUser];
+    let isChecked = arr.includes(userId);
+    if(!isChecked){
+      arr.push(userId);
+    }
+    else{
+      let index = arr.indexOf(userId);
+      arr.splice(index, 1);
+    }
+    this.setState({checkUser: arr})
   };
 
    handleNavigation = (screen_name) => {
@@ -34,8 +46,10 @@ class MyChildrenList extends Component {
     navigation.navigate(screen_name);
   };
 
+  onChangeInputValue = (value) => this.setState({inputVal: value});
+
   render() {
-    const {userList, userId} = this.state;
+    const {userList, checkUser, inputVal} = this.state;
     return (
       <View style={styles.container}>
         <Header
@@ -49,13 +63,18 @@ class MyChildrenList extends Component {
         <View style={styles.contentView}>
           <View style={styles.listView}>
             <ScrollView>
+            <CustomTextInput
+              onChangeText={this.onChangeInputValue}
+              textInputValue={inputVal}
+              placeholder={'Search'}
+            />
               {userList.length > 0 &&
                 userList.map((val, ind) => (
                   <ProfileCard
                     key={ind}
                     cardImage={val?.profileImage}
                     titleText={val?.name}
-                    rightIcon={ind == userId ? Images.checked_icon :Images.unchecked_icon}
+                    rightIcon={checkUser.includes(ind)  ? Images.checked_icon :Images.unchecked_icon}
                     rightIconPress={() => this.handleCheck(ind)}
                   />
                 ))}

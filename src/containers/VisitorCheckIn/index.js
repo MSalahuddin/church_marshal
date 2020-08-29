@@ -9,9 +9,9 @@ import {
   DoubleButton,
   CustomPicker,
   CustomDatePicker,
+  EditProfileImage
 } from '../../components';
 import {Images} from '../../theme';
-
 import styles from './styles';
 
 class VisitorCheckIn extends Component {
@@ -75,6 +75,9 @@ class VisitorCheckIn extends Component {
           leftBtnPress = {() => this.handleNavigation("SelectUser")}
         />
         <ScrollView>
+            <View>
+              <EditProfileImage  />
+            </View>
           <View style={styles.contentView}>
             <CustomPicker
               selectedValue={gender}

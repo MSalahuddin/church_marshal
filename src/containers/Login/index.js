@@ -30,6 +30,8 @@ class Login extends Component {
   handleLoginBtn = (userType) => {
     if(userType === "parents")
     this.handleNavigation('MyChildrenList');
+    else if(userType === "member")
+    this.handleNavigation('EventType');
     else
     this.handleNavigation('SelectList');
   };
@@ -40,10 +42,10 @@ class Login extends Component {
 
   render() {
     const {churchCode, username, password} = this.state;
-    const {userType} = this.props.route.params;
+    const {userType, naviagationHeader} = this.props.route.params;
     return (
       <View style={styles.container}>
-        <Header headerLogo={Images.official_logo} headerText={'Login'} />
+        <Header headerLogo={Images.official_logo} headerText={naviagationHeader} />
         <View style={styles.contentView}>
           <CustomTextInput
             onChangeText={this.onChangeChurchCode}
