@@ -1,10 +1,10 @@
 import React, {Component} from 'react';
-import {TextInput} from 'react-native';
+import {TextInput, View, Image, TouchableOpacity} from 'react-native';
 import PropTypes from 'prop-types';
 
 import styles from './styles';
 
-import {Colors} from '../../theme';
+import {Colors, Images} from '../../theme';
 
 class CustomTextInput extends Component {
   static propTypes = {
@@ -13,6 +13,8 @@ class CustomTextInput extends Component {
     textInputValue: PropTypes.string,
     placeholder: PropTypes.string,
     secureTextEntry: PropTypes.bool,
+    onInfoPress: PropTypes.func,
+    isInfo: PropTypes.bool,
   };
   static defaultProps = {
     textInputStyle: undefined,
@@ -20,6 +22,8 @@ class CustomTextInput extends Component {
     textInputValue: '',
     placeholder: '',
     secureTextEntry: false,
+    onInfoPress: undefined,
+    isInfo: false
   };
 
   render() {
@@ -29,10 +33,13 @@ class CustomTextInput extends Component {
       textInputValue,
       placeholder,
       secureTextEntry,
+      onInfoPress,
+      isInfo
     } = this.props;
 
     return (
-      <TextInput
+      <View style = {{flexDirection: "row"}}>
+          <TextInput
         style={[styles.textInput, textInputStyle]}
         onChangeText={onChangeText}
         value={textInputValue}
@@ -40,6 +47,13 @@ class CustomTextInput extends Component {
         placeholderTextColor={Colors.Dove_Gray}
         secureTextEntry={secureTextEntry}
       />
+       {
+         isInfo &&
+         <TouchableOpacity onPress = {onInfoPress}>
+           <Image style = {styles.infoStyle} source = {Images.info_icon}/>
+         </TouchableOpacity>
+       }
+      </View>
     );
   }
 }

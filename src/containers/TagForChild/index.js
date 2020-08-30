@@ -28,7 +28,6 @@ class TagForChild extends Component {
   }
 
   handleSelectedCard = () => {
-    console.log('Selected Card');
   };
 
   handleNavigation = (screen_name) => {
@@ -75,8 +74,5 @@ class TagForChild extends Component {
   }
 }
 
-// const mapStateToProps = () => ({});
 
-// const actions = {};
-
-export default TagForChild; // connect(mapStateToProps, actions)(Empty);
+export default TagForChild; 

@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
-import Lightbox from 'react-native-lightbox';
-import {View, Text, Image, TouchableOpacity} from 'react-native';
+import {View, Text, Image, TouchableOpacity, Modal} from 'react-native';
 import PropTypes from 'prop-types';
 import styles from './styles';
 import {Metrics} from "../../theme";
@@ -59,16 +58,44 @@ class ProfileCard extends Component {
     headerPrintLabelPress: undefined
   };
 
-  renderLightBoxImage = () => {
+  constructor(props){
+    super(props);
+    this.state = {
+      showOverLay: false
+    }
+  }
+
+  showOverLay = () => {
     const {cardImage} = this.props
+    const {showOverLay} = this.state;
     return(
-      <View>
-        <Image
-             source={cardImage}
-             resizeMode="contain"
-             style={{width: Metrics.screenWidth, height: Metrics.screenHeight * 0.5}}
-        />
+      <Modal
+        animationType="slide"
+        transparent={true}
+        visible={showOverLay}
+        >
+      <View style = {{
+        flex: 1,
+        justifyContent: "center",
+        backgroundColor: "#6d6a6fe0"}}
+      >
+        <View style = {{backgroundColor: "white", paddingVertical: Metrics.ratio(10)}}>
+          <TouchableOpacity onPress={() => this.setState({showOverLay: false})}>
+            <Text style={styles.closeButton}>Close</Text>
+          </TouchableOpacity>
+          <View style = {{ 
+            justifyContent: "center", 
+            alignItems: "center"}}
+          >
+            <Image
+              source={cardImage}
+              resizeMode="contain"
+              style={{width: Metrics.screenWidth, height: Metrics.screenHeight * 0.3}}
+          />
+          </View>
+        </View>
       </View>
+    </Modal>
     )
   }
 
@@ -81,23 +108,13 @@ class ProfileCard extends Component {
       cardImageStyle,
       titleText,
       titleTextStyle,
-      subText,
-      subTextStyle,
-      rightIcon,
-      rightIconStyle,
-      rightIconPress,
-      cardFooterText,
       cardFooterTextStyle,
       date,
       time,
       type,
       footerViewStyle,
       headerViewStyle,
-      checkedIcon,
-      printLabelIcon,
-      headerCheckedIconStyle,
-      headerCheckedPress,
-      headerPrintLabelPress
+     
     } = this.props;
     
     return (
@@ -107,23 +124,19 @@ class ProfileCard extends Component {
         onPress={cardPress}>
         <View style={styles.cardBody}>
           <View style={styles.cardBodyRow}>
-            <Lightbox
-            renderHeader={close => (
-              <TouchableOpacity onPress={close}>
-                <Text style={styles.closeButton}>Close</Text>
-              </TouchableOpacity>
-            )}
-            underlayColor="white"
-            renderContent={this.renderLightBoxImage}
-            >
-              <Image
+          
+             <TouchableOpacity 
+              onPress = {() => this.setState({showOverLay: true})}
+              >
+             <Image
               source={cardImage}
               resizeMode="contain"
               style={[
                 styles.cardImage, cardImageStyle
                 ]}
             />
-            </Lightbox>
+             </TouchableOpacity>
+
             <View>
               <View style={styles.titleView}>
                 <View style = {headerViewStyle}>
@@ -143,7 +156,8 @@ class ProfileCard extends Component {
         <View style = {[styles.footerView,footerViewStyle]}>
                   <Text style={[styles.cardFooterText, cardFooterTextStyle]}>{date}</Text>
                   <Text style={[styles.cardFooterText, cardFooterTextStyle]}>{time}</Text>
-              </View>
+        </View>
+        {this.showOverLay()}
       </TouchableOpacity>
     );
   }

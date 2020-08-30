@@ -37,11 +37,9 @@ class CheckedOutList extends Component {
   }
 
   handleCheckIn = () => {
-    console.log('Check In');
   };
 
   handleDeleteUser = (userId) => {
-    console.log(userId, 'Delete User');
   };
 
   handleNavigation = (screen_name) => {
@@ -91,8 +89,4 @@ class CheckedOutList extends Component {
   }
 }
 
-// const mapStateToProps = () => ({});
-
-// const actions = {};
-
-export default CheckedOutList; // connect(mapStateToProps, actions)(Empty);
+export default CheckedOutList; 

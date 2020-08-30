@@ -69,15 +69,12 @@ class VisitorCheckedInList extends Component {
     navigation.navigate("TagForParent");
     else
     navigation.navigate("TagForChild");
-    console.log(user,'user')
   }
 
   handleCancelBtn = () => {
-    console.log('Cancel');
   };
 
   handleCheckInBtn = () => {
-    console.log('Check In');
   };
 
   handleNavigation = (screen_name) => {
@@ -141,8 +138,5 @@ class VisitorCheckedInList extends Component {
   }
 }
 
-// const mapStateToProps = () => ({});
 
-// const actions = {};
-
-export default VisitorCheckedInList; // connect(mapStateToProps, actions)(Empty);
+export default VisitorCheckedInList; 

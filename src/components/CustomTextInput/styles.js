@@ -4,6 +4,7 @@ import {Metrics, Colors, Fonts} from '../../theme';
 
 export default StyleSheet.create({
   textInput: {
+    flex: 1,
     marginHorizontal: Metrics.screenWidth * 0.05,
     fontSize: Metrics.ratio(14),
     color: Colors.Dove_Gray,
@@ -14,4 +15,10 @@ export default StyleSheet.create({
     paddingHorizontal: 0,
     marginBottom: Metrics.ratio(16),
   },
+  infoStyle: {
+    width: Metrics.ratio(25),
+    height: Metrics.ratio(25),
+    marginRight: Metrics.ratio(10),
+    flex: 0
+  }
 });

@@ -5,7 +5,6 @@ import {View, ScrollView} from 'react-native';
 
 import {Header, SingleButton, MemberListCard, CustomTextInput } from '../../components';
 import {Images, Metrics} from '../../theme';
-
 import styles from './styles';
 
 class MemberCheckInList extends Component {
@@ -63,7 +62,7 @@ class MemberCheckInList extends Component {
           rightIcon = {Images.logout_icon}
           rightBtnPress = {() => this.handleNavigation("Login")}
           headerLogo={Images.client_logo}
-          headerText={'Wroker/Member Check In List'}
+          headerText={'Worker/Member Check In List'}
         />
         <View style={styles.contentView}>
 

@@ -90,8 +90,5 @@ class MyChildrenList extends Component {
   }
 }
 
-// const mapStateToProps = () => ({});
 
-// const actions = {};
-
-export default MyChildrenList; // connect(mapStateToProps, actions)(Empty);
+export default MyChildrenList; 

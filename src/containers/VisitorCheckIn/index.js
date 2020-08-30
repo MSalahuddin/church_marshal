@@ -36,11 +36,9 @@ class VisitorCheckIn extends Component {
   };
 
   handleCancelBtn = () => {
-    console.log('Cancel');
   };
 
   handleCheckInBtn = () => {
-    console.log('Check In');
   };
 
   onChangeGender = (value) => this.setState({gender: value});
@@ -134,8 +132,5 @@ class VisitorCheckIn extends Component {
   }
 }
 
-// const mapStateToProps = () => ({});
 
-// const actions = {};
-
-export default VisitorCheckIn; // connect(mapStateToProps, actions)(Empty);
+export default VisitorCheckIn;

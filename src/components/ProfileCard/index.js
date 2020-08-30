@@ -1,17 +1,11 @@
 import React, {Component} from 'react';
-import Lightbox from 'react-native-lightbox';
-import {View, Text, Image, TouchableOpacity} from 'react-native';
+import {View, Text, Image, TouchableOpacity, Modal} from 'react-native';
 import PropTypes from 'prop-types';
 import styles from './styles';
 import {Metrics} from "../../theme";
 
 class MemberListCard extends Component {
-  constructor(props){
-    super(props);
-    this.state = {
-    
-    }
-  }
+  
   static propTypes = {
     isCardDisabled: PropTypes.bool,
     cardStyle: PropTypes.object,
@@ -61,16 +55,44 @@ class MemberListCard extends Component {
     headerPrintLabelPress: undefined
   };
 
-  renderLightBoxImage = () => {
+  constructor(props){
+    super(props);
+    this.state = {
+      showOverLay: false
+    }
+  }
+
+  showOverLay = () => {
     const {cardImage} = this.props
+    const {showOverLay} = this.state;
     return(
-      <View>
-        <Image
-             source={cardImage}
-             resizeMode="contain"
-             style={{width: Metrics.screenWidth, height: Metrics.screenHeight * 0.5}}
-        />
+      <Modal
+        animationType="slide"
+        transparent={true}
+        visible={showOverLay}
+        >
+      <View style = {{
+        flex: 1,
+        justifyContent: "center",
+        backgroundColor: "#6d6a6fe0"}}
+      >
+        <View style = {{backgroundColor: "white", paddingVertical: Metrics.ratio(10)}}>
+          <TouchableOpacity onPress={() => this.setState({showOverLay: false})}>
+            <Text style={styles.closeButton}>Close</Text>
+          </TouchableOpacity>
+          <View style = {{ 
+            justifyContent: "center", 
+            alignItems: "center"}}
+          >
+            <Image
+              source={cardImage}
+              resizeMode="contain"
+              style={{width: Metrics.screenWidth, height: Metrics.screenHeight * 0.3}}
+          />
+          </View>
+        </View>
       </View>
+    </Modal>
     )
   }
 
@@ -93,10 +115,7 @@ class MemberListCard extends Component {
       date,
       footerViewStyle,
       headerViewStyle,
-      checkedIcon,
       printLabelIcon,
-      headerCheckedIconStyle,
-      headerCheckedPress,
       headerPrintLabelPress
     } = this.props;
 
@@ -107,24 +126,19 @@ class MemberListCard extends Component {
         onPress={cardPress}>
         <View style={styles.cardBody}>
           <View style={styles.cardBodyRow}>
-            <Lightbox
-            renderHeader={close => (
-              <TouchableOpacity onPress={close}>
-                <Text style={styles.closeButton}>Close</Text>
-              </TouchableOpacity>
-            )}
-            underlayColor="white"
-            renderContent={this.renderLightBoxImage}
-            >
-              <Image
+       
+            <TouchableOpacity 
+              onPress = {() => this.setState({showOverLay: true})}
+              >
+             <Image
               source={cardImage}
               resizeMode="contain"
               style={[
                 styles.cardImage, cardImageStyle
                 ]}
             />
-            </Lightbox>
-          
+             </TouchableOpacity>
+            
             <View style={styles.titleView}>
               <View style = {[headerViewStyle, ]}>
                 <Text style={[styles.titleText, titleTextStyle]}>
@@ -163,6 +177,7 @@ class MemberListCard extends Component {
             </Text>
           </View>
         ) : null}
+        {this.showOverLay()}
       </TouchableOpacity>
     );
   }

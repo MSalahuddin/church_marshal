@@ -59,7 +59,7 @@ class ChildCheckInList extends Component {
           rightIcon = {Images.logout_icon}
           rightBtnPress = {() => this.handleNavigation("Login")}
           headerLogo={Images.client_logo}
-          headerText={'List of My Children'}
+          headerText={'List of Children'}
         />
         <View style={styles.contentView}>
 
@@ -92,8 +92,5 @@ class ChildCheckInList extends Component {
   }
 }
 
-// const mapStateToProps = () => ({});
 
-// const actions = {};
-
-export default ChildCheckInList; // connect(mapStateToProps, actions)(Empty);
+export default ChildCheckInList;

@@ -1,10 +1,10 @@
 // @flow
 // import { connect } from "react-redux";
 import React, {Component} from 'react';
-import {View, ScrollView} from 'react-native';
+import {View, ScrollView, Modal, Text, Image, TouchableOpacity} from 'react-native';
 
 import {Header, CustomTextInput, DoubleButton} from '../../components';
-import {Images} from '../../theme';
+import {Images, Metrics} from '../../theme';
 
 import styles from './styles';
 
@@ -15,6 +15,7 @@ class Login extends Component {
       churchCode: null,
       username: null,
       password: null,
+      showOverLay: false
     };
   }
 
@@ -40,6 +41,78 @@ class Login extends Component {
   onChangeUsername = (value) => this.setState({username: value});
   onChangePassword = (value) => this.setState({password: value});
 
+  renderInfoModal = () => {
+    const {showOverLay} = this.state;
+    return(
+      <Modal
+        animationType="slide"
+        transparent={true}
+        visible={showOverLay}
+        >
+        <View style = {{
+          flex: 1,
+          justifyContent: "center",
+          backgroundColor: "#6d6a6fe0"}}
+        >
+          <TouchableOpacity onPress={() => this.setState({showOverLay: false})}>
+          <Text style={styles.closeButton}>Close</Text>
+        </TouchableOpacity>
+          <View style = {styles.modalView}>
+          <View style = {styles.headerView}>
+                  <Text style = {[styles.headingText, {textAlign: "center"}]}>
+                      Need help to finding your organization code?
+                  </Text>
+              <Text style = {styles.infoText}>Here are some ideas for how to find it.</Text>
+          </View>
+        <View style = {styles.bodyView}>
+                <View>
+                    <Text style = {styles.headingText}>Email</Text>
+                    <View  style = {styles.rowView}>
+                        <View>
+                            <Text style = {styles.infoText}>
+                                Check to see if you received an 
+                            </Text>
+                            <Text style = {styles.infoText}>
+                                email with your organization client code 
+                            </Text>
+                        </View>
+                        <Image style = {styles.imageStyle} source = {Images.mail_icon}/>
+                    </View>
+                </View>
+                <View>
+                    <Text style = {styles.headingText}>Comember</Text>
+                    <View  style = {styles.rowView}>
+                        <View>
+                            <Text style = {styles.infoText}>
+                                Find Admin, Group Leads or Comember 
+                            </Text>
+                            <Text style = {styles.infoText}>
+                                in your organization and ask them
+                            </Text>
+                        </View>
+                        <Image style = {styles.imageStyle} source = {Images.group_icon}/>
+                    </View>
+                </View>
+                <View>
+                    <Text style = {styles.headingText}>Bulletin Board</Text>
+                    <View  style = {styles.rowView}>
+                    <View>
+                            <Text style = {styles.infoText}>
+                                See if there is any information in your
+                            </Text>
+                            <Text style = {styles.infoText}>
+                                organization app or website about this
+                            </Text>
+                    </View>
+                    <Image style = {styles.imageStyle} source = {Images.monitor_icon}/>
+                    </View>
+                </View>
+            </View>
+          </View>
+        </View>
+      </Modal>
+    )
+  }
   render() {
     const {churchCode, username, password} = this.state;
     const {userType, naviagationHeader} = this.props.route.params;
@@ -51,7 +124,9 @@ class Login extends Component {
             <CustomTextInput
               onChangeText={this.onChangeChurchCode}
               textInputValue={churchCode}
-              placeholder={'CHURCH CODE'}
+              placeholder={'CLIENT CODE'}
+              isInfo = {true}
+              onInfoPress = {() =>this.setState({showOverLay: true})}
             />
             <CustomTextInput
               onChangeText={this.onChangeUsername}
@@ -72,13 +147,11 @@ class Login extends Component {
             />
           </View>
         </ScrollView>
+        {this.renderInfoModal()}
       </View>
     );
   }
 }
 
-// const mapStateToProps = () => ({});
 
-// const actions = {};
-
-export default Login; // connect(mapStateToProps, actions)(Empty);
+export default Login;

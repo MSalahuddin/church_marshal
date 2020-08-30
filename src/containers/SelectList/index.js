@@ -79,8 +79,5 @@ class CheckedOutList extends Component {
   }
 }
 
-// const mapStateToProps = () => ({});
 
-// const actions = {};
-
-export default CheckedOutList; // connect(mapStateToProps, actions)(Empty);
+export default CheckedOutList; 

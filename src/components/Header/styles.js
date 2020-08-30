@@ -19,6 +19,7 @@ export default StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
+    
   },
   headerLogo: {
     width: Metrics.ratio(45),

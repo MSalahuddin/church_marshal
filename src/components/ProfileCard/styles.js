@@ -62,9 +62,9 @@ export default StyleSheet.create({
     flexDirection: "row"
   },
   closeButton: {
-    color: 'white',
+    color: 'black',
     borderWidth: 1,
-    borderColor: 'white',
+    borderColor: 'black',
     padding: 8,
     borderRadius: 3,
     textAlign: 'center',

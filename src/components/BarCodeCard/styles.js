@@ -83,4 +83,14 @@ export default StyleSheet.create({
     fontFamily: Fonts.type.AvenirNextLTProBold,
     color: Colors.Dove_Gray,
   },
+  closeButton: {
+    color: 'black',
+    borderWidth: 1,
+    borderColor: 'black',
+    padding: 8,
+    borderRadius: 3,
+    textAlign: 'center',
+    margin: 10,
+    alignSelf: 'flex-end',
+  },
 });

@@ -36,16 +36,12 @@ class EditProfileImage extends Component {
     ImagePicker.showImagePicker(options, (response) => {
 
       if (response.didCancel) {
-        console.log('User cancelled image picker');
       } else if (response.error) {
-        console.log('ImagePicker Error: ', response.error);
       } else if (response.customButton) {
-        console.log('User tapped custom button: ', response.customButton);
       } else {
 
         // You can also display the image using data:
         const source = {uri: 'data:image/jpeg;base64,' + response.data};
-        console.log(source,'sssssssssssssllllll')
         let url = (Platform.OS==='android') ? response.uri : response.uri.replace('file://', '')
         let path = response.uri;
         if (Platform.OS === "ios") {

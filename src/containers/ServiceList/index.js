@@ -36,7 +36,6 @@ class ServiceList extends Component {
 
 
   handleDeleteUser = (userId) => {
-    console.log(userId, 'Delete User');
   };
 
   handleNavigation = (screen_name) => {

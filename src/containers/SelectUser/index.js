@@ -15,7 +15,6 @@ class SelectUser extends Component {
   };
 
   handleBackBtn = () => {
-    console.log('Back');
   };
 
   renderLabel = (text) => <Text style={styles.labelText}>{text}</Text>;
@@ -57,8 +56,5 @@ class SelectUser extends Component {
   }
 }
 
-// const mapStateToProps = () => ({});
 
-// const actions = {};
-
-export default SelectUser; // connect(mapStateToProps, actions)(Empty);
+export default SelectUser;
